@@ -1,0 +1,91 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'SeoulNamsanM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	font-family: 'SeoulNamsanM';
+}
+
+.all {
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	display: flex; /* Flex 컨테이너로 설정합니다. */
+    flex-direction: column; /* 세로로 정렬합니다. */
+    align-items: center; /* 가로 방향 가운데 정렬합니다. */
+}
+
+.title {
+	border: solid 1px gray;
+    width: 320px;
+    height: 60px;
+    display: inline-block;
+    background-color: #FFEC9F;
+    font-weight: bold;
+    margin-top: 100px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    text-align: center; /* 텍스트를 가운데 정렬합니다. */
+    line-height: 60px; /* 텍스트와 테두리의 높이를 맞춰줍니다. */
+    border-radius: 10px; /* 테두리를 10px 둥글게 만듭니다. */
+}
+
+.content_box {
+	border: solid 1px black;
+	background-color: rgba(235, 200, 145, 0.2);
+	width: 850px;
+	height: 750px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.sub_title,
+.sub_title2 {
+	margin-bottom: 70px;
+	font-size: 18px;
+}
+
+.text {
+	width: 700px;
+	height: 700px;
+	margin: auto; /* 위아래 간격을 동일하게 하려면 auto로 설정합니다. */
+	display: flex; /* Flex 컨테이너로 설정합니다. */
+    flex-direction: column; /* 세로로 정렬합니다. */
+    justify-content: center; /* 세로 방향 가운데 정렬합니다. */
+}
+
+.text_content {
+	font-size: 20px;
+	line-height: 30px;
+}
+
+.bold {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.buttons {
+	margin-bottom: 100px;
+}
+
+.buttons button{
+	border: solid 1px gray;
+	width: 160px;
+	height: 50px;
+	font-size: 20px;
+	border-radius: 10px;
+}
+
+.cancel {
+	background-color: white;
+}
+
+.ok_delete {
+	background-color: #FFEC9F;
+}

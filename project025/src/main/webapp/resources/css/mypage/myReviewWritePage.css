@@ -1,0 +1,170 @@
+@font-face {
+	font-family: 'SeoulNamsanM';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+* {
+	font-family: 'SeoulNamsanM', sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+textarea {
+	width: 80%;
+    height: 6.25em;
+    border: none;
+    resize: none;
+    margin-left: 10px;
+}
+
+input {
+	border: none;
+}
+
+.all {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.keunteduri {
+	border: 1px solid #FF6464; /* 테두리 스타일 */
+	border-radius: 30px; /* 네모 모양 */
+	width: 700px; /* 너비 */
+	padding: 20px; /* 테두리와 내용 사이의 간격 설정 */
+}
+
+.title-container input[type="text"] {
+	flex-grow: 1;
+	margin-left: 10px;
+}
+
+.title-container {
+	display: flex;
+	border: 1px solid #FF6464;
+	padding: 10px;
+	margin-top: 10px;
+	margin: auto;
+	max-width: 600px; /* 최대 너비 설정 */
+	border-radius: 10px;
+}
+
+.contentteduri {
+	margin: auto;
+	max-width: 600px; /* 최대 너비 설정 */
+	border-radius: 10px;
+	/* color: #FF6464; */
+}
+
+
+.indoorbutton {
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: #FF6464;
+	color: #ffffff;
+	cursor: pointer;
+	text-align: center;
+}
+
+button:hover {
+	background-color: #FFEC9F;
+}
+
+.content {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 100px;
+    margin-top: -40px;
+}
+
+.insert {
+	padding: 15px;
+}
+
+h1 {
+	text-align: center;
+	font-family: 'SeoulNamsanM';
+	color: #FF6464;
+}
+
+.submit_bottom {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#member_review_recommend {
+	padding: 20px;
+	margin-top: 10px;
+}
+
+.btn.btn-primary {
+	background-color: #FF6464;
+	border: 1px solid #FF6464;
+}
+.btn.btn-primary:hover {
+	background-color: #FFEC9F;
+}
+
+.btn-group {
+	padding: 10px;
+}
+
+.recommend_bottom {
+	display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    margin-left: 10px;
+}
+
+#member_review_score_number {
+	margin-left:10px;
+}
+
+.time_area {
+	margin-left: 20px;
+}
+
+.custom-file-upload {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  background-color: rgba(235, 200, 145, 0.2);
+	border: none;
+	font-weight: bold;
+	height: 30px;
+	align-items: center;
+}
+
+.custom-file-upload input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+#fileName {
+  margin-right: 10px;
+}
+
+.custom-file-upload:hover {
+  background-color: #FF6464;
+}

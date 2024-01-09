@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shinhan.login">
+	<select id="login_cheak" parameterType="logindto" resultType="ownervo" >
+		SELECT * FROM OWNER WHERE owner_id=#{id} AND owner_password=#{password}
+	</select>
+	
+	<select id="id_cheak" parameterType="String" resultType="int" >
+		SELECT COUNT(*) FROM OWNER WHERE owner_id=#{id};
+	</select>
+	
+	<select id="owner_kakao_login_check" parameterType="kakaoLoginOwnerDTO" resultType="ownervo">
+		SELECT * FROM OWNER o WHERE o.owner_email=#{email}
+	</select>
+	<!-- <select id="email_cheak" parameterType="String" resultType="int" >
+		SELECT COUNT(*) FROM OWNER WHERE owner_email=#{email};
+	</select>
+	<select id="phone_cheak" parameterType="String" resultType="int" >
+		SELECT COUNT(*) FROM OWNER WHERE owner_phone=#{phone};
+	</select> -->
+	<!-- <select id="regist_code_cheak" parameterType="String" resultType="int" >
+		SELECT COUNT(*) FROM OWNER WHERE owner_regist_code=#{regist_code};
+	</select> -->
+	
+	<insert id="sign_up" parameterType="signupdto">
+		INSERT INTO OWNER (owner_id, owner_name, owner_password, owner_email, owner_phone, owner_address, owner_address_latitude, owner_address_longitude, owner_regist_code, owner_address_detail)
+		VALUES (#{id}, #{name}, #{password}, #{email}, #{phone}, #{address}, #{address_latitude}, #{address_longitude}, #{regist_code}, #{address_detail});
+	</insert>
+	<select id="search_id" parameterType="searchid" resultType="String">
+		SELECT owner_id FROM OWNER WHERE owner_name=#{search_id_name} AND  owner_regist_code=#{search_id_regist_code} AND owner_phone=#{search_id_phone}
+	</select>
+	<select id="search_password" parameterType="searchpassword" resultType="String">
+		SELECT owner_password FROM OWNER WHERE owner_id=#{search_password_id} AND  owner_regist_code=#{search_password_regist_code} AND owner_phone=#{search_password_phone};
+	</select>
+	<select id="regist_code_cheak" parameterType="String" resultType="int" >
+		SELECT COUNT(*) FROM OWNER WHERE owner_regist_code=#{regist_code};
+	</select>
+	
+	<select id="naver_check" parameterType="String"  resultType="ownervo">
+		SELECT * FROM OWNER WHERE owner_email=#{email}
+	</select>
+</mapper>
+

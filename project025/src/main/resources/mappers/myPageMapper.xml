@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shinhan.mypage">
+	<select id="selectAllByPaymentId"
+		resultType="com.shinhan.dto.MyReviewVO" parameterType="string">
+		SELECT
+		MEMBER_REVIEW.*,
+		PAYMENT.payment_date member_pay_date
+		FROM PAYMENT, MEMBER_REVIEW
+		WHERE PAYMENT.payment_seq =
+		MEMBER_REVIEW.payment_seq
+		AND PAYMENT.payment_member_id = #{mid}
+	</select>
+	<select id="selectAllOrderList"
+		resultType="com.shinhan.dto.OrderListDTO" parameterType="hashMap">
+		SELECT 
+		    p.payment_seq AS order_id, 
+		    p.payment_date AS order_payment_date, 
+		    s.store_img_thumbnail_path AS order_store_image, 
+		    s.store_name AS order_store_name, 
+		    p.payment_status_id AS order_status_id,
+		    p.payment_delivery_fee AS order_delivery_fee,
+		    sum(pp.payment_product_price) AS order_amount,
+		    sum(pp.payment_product_discount_price) AS order_discount_price 
+		FROM PAYMENT p
+		JOIN STORE s ON p.payment_store_id = s.store_id
+		LEFT JOIN PAYMENT_PRODUCT pp ON p.payment_seq = pp.payment_product_payment_id
+		WHERE p.payment_member_id = #{mid}
+		    AND p.payment_get_id IN (1, 2)
+		AND 
+		<include refid="period"/>
+		GROUP BY  p.payment_seq    ,  p.payment_date  , s.store_img_thumbnail_path, s.store_name, p.payment_status_id,  p.payment_delivery_fee
+		ORDER BY p.payment_date DESC
+	</select>
+	<select id="selectMyOrderDetail" resultType="map" parameterType="int">
+		SELECT
+		    p.*,
+		    s.store_name,
+		    m.menu_name,
+		    m.menu_image_path,
+		    pp.payment_product_count,
+		    pp.payment_product_price,
+		    pp.payment_product_discount_price,
+		    mbr.member_name,
+		    mbr.member_phone
+		FROM
+		    PAYMENT p
+		JOIN
+		    STORE s ON p.payment_store_id = s.store_id
+		JOIN
+		    PAYMENT_PRODUCT pp ON p.payment_seq = pp.payment_product_payment_id
+		JOIN
+		    MENU m ON pp.payment_product_menu_id = m.menu_id
+		JOIN
+		    MEMBER mbr ON p.payment_member_id = mbr.member_id
+		WHERE
+		    p.payment_seq = #{payment_seq}
+	</select>
+	<select id="selectPickUpOrder" 
+		resultType="com.shinhan.dto.OrderListDTO" parameterType="hashMap">
+		SELECT 
+		    p.payment_seq AS order_id, 
+		    p.payment_date AS order_payment_date, 
+		    si.store_img_path AS order_store_image, 
+		    s.store_name AS order_store_name, 
+		    p.payment_status_id AS order_status_id,
+		    p.payment_delivery_fee AS order_delivery_fee,
+		    pp.payment_product_price AS order_amount,
+		    pp.payment_product_discount_price AS order_discount_price
+		    
+		FROM PAYMENT p
+		JOIN STORE s ON p.payment_store_id = s.store_id
+		JOIN STORE_IMG_PATH si ON s.store_id = si.store_img_path_store_id
+		LEFT JOIN PAYMENT_PRODUCT pp ON p.payment_seq = pp.payment_product_payment_id
+		WHERE p.payment_member_id = #{mid}
+		    AND p.payment_get_id = 2
+		AND 
+		<include refid="period"/>
+		GROUP BY  p.payment_seq    ,  p.payment_date  , si.store_img_path, s.store_name, p.payment_status_id,  p.payment_delivery_fee
+		ORDER BY p.payment_date DESC
+	</select>
+	<select id="selectDeliveryOrder" 
+		resultType="com.shinhan.dto.OrderListDTO" parameterType="hashMap">
+		SELECT 
+		    p.payment_seq AS order_id, 
+		    p.payment_date AS order_payment_date, 
+		    si.store_img_path AS order_store_image, 
+		    s.store_name AS order_store_name, 
+		    p.payment_status_id AS order_status_id,
+		    p.payment_delivery_fee AS order_delivery_fee,
+		    pp.payment_product_price AS order_amount,
+		    pp.payment_product_discount_price AS order_discount_price
+		    
+		FROM PAYMENT p
+		JOIN STORE s ON p.payment_store_id = s.store_id
+		JOIN STORE_IMG_PATH si ON s.store_id = si.store_img_path_store_id
+		LEFT JOIN PAYMENT_PRODUCT pp ON p.payment_seq = pp.payment_product_payment_id
+		WHERE p.payment_member_id = #{mid}
+		    AND p.payment_get_id = 1
+		AND 
+		<include refid="period"/>
+		GROUP BY  p.payment_seq    ,  p.payment_date  , si.store_img_path, s.store_name, p.payment_status_id,  p.payment_delivery_fee
+		ORDER BY p.payment_date DESC
+	</select>
+	<select id="getMySubList" resultType="com.shinhan.dto.MySubscribeDTO" parameterType="string">
+		SELECT sap.subscribe_active_program_payment_id payment_id,
+		       st.store_name subscribe_store_name,
+		       sap.subscribe_active_program_use_count subscribe_use_count,
+		       sap.subscribe_active_program_start_date subscribe_start_date,
+		       sip.store_img_path subscribe_store_img_path,
+		       sap.subscribe_active_program_total_week subscribe_total_week,
+		       sap.subscribe_active_program_case_content subscribe_case_content,
+		       sap.subscribe_active_program_delivery_time subscribe_delivery_time,
+		       m.member_name subscribe_member_name
+		FROM SUBSCRIBE_ACTIVE_PROGRAM sap
+		JOIN SUBSCRIBE s ON sap.subscribe_active_program_subscribe_id = s.subscribe_id
+		JOIN STORE st ON s.subscribe_store_id = st.store_id
+		JOIN PAYMENT p ON sap.subscribe_active_program_payment_id = p.payment_seq
+		JOIN MEMBER m ON sap.subscribe_active_program_member_id = m.member_id
+		JOIN STORE_IMG_PATH sip ON st.store_id = sip.store_img_path_store_id
+		WHERE p.payment_member_id = #{mid}
+		AND p.payment_get_id = 3
+	</select>
+	<select id="checkReview" resultType="int" parameterType="int">
+		SELECT COUNT(*)
+		FROM MEMBER_REVIEW
+		WHERE payment_seq=#{aa}
+	</select>
+	<insert id="submitReview" parameterType="com.shinhan.dto.MyReviewSubmitDTO">
+		INSERT INTO MEMBER_REVIEW (
+            payment_seq,
+            member_review_title,
+            member_review_content,
+            member_review_img_path,
+            member_review_date,
+            member_review_recommend,
+            member_review_score_number,
+            member_review_member_id
+        ) VALUES (
+            #{payment_seq},
+            #{member_review_title},
+            #{member_review_content},
+            #{member_review_img_path},
+            #{member_review_date},
+            #{member_review_recommend},
+            #{member_review_score_number},
+            #{member_review_member_id}
+        )
+	</insert>
+	<update id="submitReviewImg" parameterType="map">
+		UPDATE MEMBER_REVIEW
+        SET member_review_img_path = #{filePath}
+        WHERE payment_seq = #{payment_seq}
+	</update>
+	<delete id="deleteReview" parameterType="int">
+		delete from
+		MEMBER_REVIEW
+		where payment_seq=#{aa}
+	</delete>
+	
+	
+	<!-- 기간 조회 -->
+	<sql id="period">
+		<if test="period==1">
+			p.payment_date >= date_add(now(), interval -1 week)
+		</if>
+		<if test="period==2">
+			p.payment_date >= date_add(now(), interval -1 month)
+		</if>
+		<if test="period==3">
+			p.payment_date >= date_add(now(), interval -3 month)
+		</if>
+	</sql>
+	
+</mapper>

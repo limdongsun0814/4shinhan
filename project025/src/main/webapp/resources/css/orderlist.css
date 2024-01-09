@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+
+table {
+    width: 800px;
+    margin-top: 50px;
+    border: none;
+    margin-bottom: 200px;
+}
+
+th {
+	border: none;
+	background-color: rgba(235, 200, 145, 0.2);
+    height: 60px;
+    font-size: 18px;
+}
+
+td {
+	border: none;
+	height: 150px;
+	font-size: 18px;
+	text-align: center;
+}
+.store_name {
+	display: flex;
+	align-items: center;
+    justify-content: space-around;
+}
+
+td > button {
+	background-color: rgba(235, 200, 145, 0.2);
+    border: none;
+    font-weight: bold;
+    height: 30px;
+    margin-top: 20px;
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.firstzone.ownerReview">
+
+	<select id="selectReviewByStoreId" resultType="myreviewvo"
+		parameterType="int">
+		SELECT mr.*
+		FROM MEMBER_REVIEW mr
+		JOIN PAYMENT p ON
+		mr.payment_seq = p.payment_seq
+		WHERE p.payment_store_id = #{aa}
+		ORDER BY mr.payment_seq DESC
+		
+	</select>
+
+	<select id="selectReviewByStore" resultType="myreviewdto"
+		parameterType="int">
+		SELECT mr.*, p.payment_date, m.menu_name,
+		SUM(pp.payment_product_count) AS total_payment_product_count
+		FROM
+		MEMBER_REVIEW mr
+		JOIN PAYMENT p ON mr.payment_seq = p.payment_seq
+		JOIN
+		PAYMENT_PRODUCT pp ON p.payment_seq = pp.payment_product_payment_id
+		JOIN MENU m ON pp.payment_product_menu_id = m.menu_id
+		WHERE
+		p.payment_store_id = #{aa}
+		GROUP BY p.payment_seq DESC
+	</select>
+
+	<update id="addOwnerReview" parameterType="ownerreviewdto">
+		UPDATE MEMBER_REVIEW
+		set owner_review_content = #{owner_review_content},
+        	owner_review_date = #{owner_review_date}		
+        where payment_seq = #{payment_seq}
+    </update>
+
+	<select id="selectPaymentDate" resultType="Date"
+		parameterType="int">
+		SELECT PAYMENT_DATE
+		FROM PAYMENT p
+		WHERE
+		p.payment_store_id = #{aa}
+	</select>
+
+
+
+</mapper>

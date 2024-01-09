@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="net.firstzone.menu">
+	<select id="selectByMenuCategory" resultType="menucategoryvo" parameterType="int">
+		select * from MENU_CATEGORY
+		where menu_category_seq = #{aa}
+	</select>
+	<select id="selectAllCategory" resultType="menucategoryvo" >
+		select * 
+		from MENU_CATEGORY
+		
+	</select>
+	
+	<select id="selectCategoryByStoreUse" resultType="menucategoryvo" parameterType="java.util.Set">
+  	select * 
+  	from MENU_CATEGORY
+  	where menu_category_seq in 
+  	<foreach collection="collection" item="item" open="(" separator="," close=")">
+    	#{item}
+  	</foreach>
+	</select>
+	
+	
+</mapper>
+
+

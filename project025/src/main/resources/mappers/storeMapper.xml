@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shinhan.store">
+	<select id="selectByHeartCnt" parameterType="com.shinhan.dto.HeartDTO" resultType="int">
+		select count(*) from HEART where heart_store_id=#{heart_store_id}
+  		and heart_member_id=#{heart_member_id}
+	</select>
+	<select id="selectAll" resultType="storevo">
+		select * from STORE
+		<include refid="sort"></include>
+	</select>
+	<select id="selectById" resultType="storevo">
+		select * from STORE
+		where store_id=#{id}
+	</select>
+	<select id="selectByName" resultType="storevo">
+		select * from STORE
+		where store_name like CONCAT('%', #{keyword}, '%')
+	</select>
+	<select id="selectByIsPickup" resultType="storevo">
+		select * from STORE
+		where store_is_pickup=1
+		<include refid="sort"></include>
+	</select>
+	<select id="selectByIsDelivery" resultType="storevo">
+		select * from STORE
+		where store_is_delivery=1
+		<include refid="sort"></include>
+	</select>
+	<select id="selectByIsSubscribe" resultType="storevo">
+		select * from STORE
+		where store_is_subscribe=1
+	</select>
+	<select id="selectByHeart" resultType="storevo">
+		select * 
+		from STORE as store, (select heart_store_id 
+							  from HEART
+							  where heart_member_id=#{m_id}) as heart_store
+		where store.store_id=heart_store.heart_store_id
+	</select>
+	<select id="getStoreReviews" resultType="reviewvo">
+		SELECT r.*, 
+			m.member_nickname AS member_review_member_nickname, 
+			PAYMENT.payment_date AS member_pay_date
+		FROM MEMBER_REVIEW AS r
+		INNER JOIN MEMBER AS m ON r.member_review_member_id = m.member_id
+		INNER JOIN PAYMENT ON PAYMENT.payment_seq = r.payment_seq
+		WHERE r.payment_seq IN (SELECT payment_seq FROM PAYMENT WHERE payment_store_id = #{store_id})
+	</select>
+	<select id="getStoreAddress" resultType="storevo">
+		SELECT s.*
+		FROM STORE s
+		WHERE s.store_id = #{store_id}
+	</select>
+	<select id="selectNoticeAndEvent" resultType="com.shinhan.dto.StoreNoticeVO">
+		SELECT *
+		FROM STORE_NOTICE
+		WHERE store_notice_store_id = #{store_id}
+		order by store_notice_date DESC
+	</select>
+	<select id="selectStoreMadeIn" resultType="string">
+		SELECT store_made_in
+		FROM STORE
+		WHERE store_id = #{store_id}
+	</select>
+	<select id="selectHeartCount" resultType="int">
+		select count(*)
+		from HEART
+		where heart_store_id=#{store_id}
+	</select>
+	<select id="selectReviewCount" resultType="int">
+		select count(*)
+		from MEMBER_REVIEW m_r 
+		left join PAYMENT p 
+		on m_r.payment_seq=p.payment_seq
+		where p.payment_store_id=#{store_id}
+	</select>
+	<select id="selectSubscribeStore" resultType="map">
+		SELECT 
+		    s.store_name AS store_name,
+		    s.store_avg_score_number AS store_avg_score_number,
+		    COUNT(DISTINCT mr.member_review_title) AS member_review_count,
+		    COUNT(DISTINCT h.heart_member_id) AS heart_count,
+		    COUNT(DISTINCT sbs.subscribe_id) AS subscribe_count
+		FROM 
+		    STORE s
+		JOIN 
+		    PAYMENT p ON s.store_id = p.payment_store_id
+		JOIN 
+		    MEMBER_REVIEW mr ON p.payment_seq = mr.payment_seq
+		LEFT JOIN 
+		    HEART h ON s.store_id = h.heart_store_id
+		LEFT JOIN 
+		    SUBSCRIBE sbs ON s.store_id = sbs.subscribe_store_id
+		WHERE 
+		    s.store_is_subscribe = 1
+	</select>
+
+	<insert id="insertHeartStore" parameterType="com.shinhan.dto.HeartDTO">
+	  	insert into HEART(heart_store_id, heart_member_id)
+	  	values(#{heart_store_id}, #{heart_member_id})
+  	</insert>
+  	<delete id="deleteHeartStore" parameterType="com.shinhan.dto.HeartDTO">
+  		delete from HEART
+  		where heart_store_id=#{heart_store_id}
+  		and heart_member_id=#{heart_member_id}
+  	</delete>
+
+	<!-- 정렬 -->
+	<sql id="sort">
+		<if test="sort_type==''">
+			order by store_avg_score_number DESC
+		</if>
+		<if test="sort_type==null">
+			order by store_avg_score_number DESC
+		</if>
+		<if test="sort_type=='star'">
+			order by store_avg_score_number DESC
+		</if>
+		<if test="sort_type=='distance'">
+			
+		</if>
+		<if test="sort_type=='review'">
+			
+		</if>
+		<if test="sort_type=='sales'">
+			
+		</if>
+	</sql>
+
+	<select id="store_search" parameterType="hashMap" resultType="storeviewdto">
+		SELECT s.*, review.avg_score, review.review_count,hh.heart_count,
+		( 6371 * ACOS( COS( RADIANS(#{lat}) ) * COS( RADIANS( s.store_address_latitude ) ) * COS( RADIANS( s.store_address_longitude ) - RADIANS(#{lng}) ) + SIN( RADIANS(#{lat}) ) * SIN( RADIANS( s.store_address_latitude ) ) ) ) AS distance
+		FROM STORE s  
+		LEFT JOIN (SELECT h.heart_store_id,COUNT(h.heart_member_id) AS heart_count FROM HEART h GROUP BY h.heart_store_id) hh
+		ON(s.store_id=hh.heart_store_id) 
+		LEFT JOIN (SELECT p.payment_store_id,COUNT(p.payment_store_id) AS review_count, ROUND(AVG(m.member_review_score_number),1) AS avg_score FROM MEMBER_REVIEW m LEFT JOIN PAYMENT p ON (m.payment_seq=p.payment_seq) GROUP BY p.payment_store_id) review 
+		ON(s.store_id= review.payment_store_id)
+		LEFT JOIN MENU ON (s.store_id= MENU.menu_store_id)
+		<!-- WHERE s.store_name LIKE CONCAT('%','#{str}','%') OR MENU.menu_name LIKE CONCAT('%','#{str}','%')
+		 -->
+		WHERE s.store_name LIKE #{str} OR MENU.menu_name LIKE #{str}
+		GROUP BY s.store_id
+		 <![CDATA[having distance < 2]]>
+	</select>
+	<!-- home: 가게리스트new -->
+	<select id="selectOrderByStar" resultType="storevo">
+		select * from STORE
+		<include refid="order"></include>
+		order by store_avg_score_number DESC
+	</select>
+	<select id="selectOrderByDistance" resultType="storevo">
+		select * from STORE
+		<include refid="order"></include>
+	</select>
+	<select id="selectOrderByReviewCount" resultType="storevo">
+		SELECT S.store_id, S.store_owner_id, S.store_is_pickup, S.store_is_delivery, S.store_is_subscribe, S.store_name, S.store_address, S.store_address_detail,
+        S.store_address_latitude, S.store_address_longitude, S.store_phone, S.store_min_delivery_price, S.store_avg_delivery_predict_time, S.store_operation_hour, 
+        S.store_is_open, S.store_closed_date, S.store_introduce, COUNT(MR.payment_seq) AS total_reviews
+        FROM STORE S
+        LEFT JOIN PAYMENT P ON S.store_id = P.payment_store_id
+        LEFT JOIN MEMBER_REVIEW MR ON P.payment_seq = MR.payment_seq
+        <include refid="order"></include>
+        GROUP BY S.store_id
+        ORDER BY total_reviews DESC, store_avg_score_number DESC
+	</select>
+	<select id="selectOrderBySalesCount" resultType="storevo">
+		SELECT S.store_id, S.store_owner_id, S.store_is_pickup, S.store_is_delivery, S.store_is_subscribe, S.store_name, S.store_address, S.store_address_detail,
+		S.store_address_latitude, S.store_address_longitude, S.store_phone, S.store_min_delivery_price, S.store_avg_delivery_predict_time, S.store_operation_hour, 
+		S.store_is_open, S.store_closed_date, S.store_introduce, SUM(m.menu_sale_count) AS total_sales
+		FROM STORE S
+		LEFT JOIN MENU m ON S.store_id=m.menu_store_id
+		<include refid="order"></include>
+		GROUP BY S.store_id
+		ORDER BY total_sales DESC, store_avg_score_number DESC
+	</select>
+	<select id="selectOrderByHeartCount" resultType="storevo">
+		SELECT S.store_id, S.store_owner_id, S.store_is_pickup, S.store_is_delivery, S.store_is_subscribe, S.store_name, S.store_address, S.store_address_detail,
+		S.store_address_latitude, S.store_address_longitude, S.store_phone, S.store_min_delivery_price, S.store_avg_delivery_predict_time, S.store_operation_hour, 
+		S.store_is_open, S.store_closed_date, S.store_introduce, COUNT(H.heart_member_id) AS total_hearts
+		FROM STORE S
+		LEFT JOIN HEART H ON S.store_id=H.heart_store_id
+		<include refid="order"></include>
+		GROUP BY S.store_id
+		ORDER BY total_hearts DESC;
+	</select>
+	<!-- 주문타입 필터링 -->
+	<sql id="order">
+		<if test="order_type==''"></if>
+		<if test="order_type==null"></if>
+		<if test="order_type=='all'"></if>
+		<if test="order_type=='pickup_ok'">
+			where store_is_pickup=1
+		</if>
+		<if test="order_type=='delivery_ok'">
+			where store_is_delivery=1
+		</if>
+	</sql>
+	<select id="selectByDistanceOrderByStar" resultType="storelistdto" parameterType="hashMap">
+		select store_id, store_owner_id, store_is_pickup, store_is_delivery, store_is_subscribe, store_name, store_address, store_address_detail, store_address_latitude, store_address_longitude, store_phone,
+				store_min_delivery_price, store_avg_delivery_predict_time, store_operation_hour, store_is_open, store_closed_date, store_introduce, store_made_in, store_view_count, store_pay_tier, store_delivery_fee, store_avg_score_number, store_ip_path,
+				store_img_thumbnail_path, store_img_path,
+				( 6371 * ACOS( COS( RADIANS(#{lat}) ) * COS( RADIANS( store_address_latitude ) ) * COS( RADIANS( store_address_longitude ) - RADIANS(#{lng}) ) + SIN( RADIANS(#{lat}) ) * SIN( RADIANS( store_address_latitude ) ) ) ) AS distance
+		from STORE
+		<include refid="order"></include>
+		<![CDATA[having distance < 2]]>
+		order by store_avg_score_number DESC
+	</select>
+	<select id="selectByDistanceOrderByReviewCount" resultType="storelistdto" parameterType="hashMap">
+		select S.store_id, S.store_owner_id, S.store_is_pickup, S.store_is_delivery, S.store_is_subscribe, S.store_name, S.store_address, S.store_address_detail,
+        S.store_address_latitude, S.store_address_longitude, S.store_phone, S.store_min_delivery_price, S.store_avg_delivery_predict_time, S.store_operation_hour, 
+        S.store_is_open, S.store_closed_date, S.store_introduce, S.store_introduce, S.store_made_in, S.store_view_count, S.store_pay_tier, S.store_delivery_fee, S.store_avg_score_number, S.store_ip_path,
+		S.store_img_thumbnail_path, S.store_img_path,
+        ( 6371 * ACOS( COS( RADIANS(#{lat}) ) * COS( RADIANS( S.store_address_latitude ) ) * COS( RADIANS( S.store_address_longitude ) - RADIANS(#{lng}) ) + SIN( RADIANS(#{lat}) ) * SIN( RADIANS( S.store_address_latitude ) ) ) ) AS distance,
+        COUNT(MR.payment_seq) AS total_reviews
+        FROM STORE S
+        LEFT JOIN PAYMENT P ON S.store_id = P.payment_store_id
+        LEFT JOIN MEMBER_REVIEW MR ON P.payment_seq = MR.payment_seq
+        <include refid="order"></include>
+        GROUP BY S.store_id
+        <![CDATA[having distance < 2]]>
+        ORDER BY total_reviews DESC, S.store_avg_score_number DESC
+	</select>
+	<select id="selectByDistanceOrderBySalesCount" resultType="storelistdto" parameterType="hashMap">
+		SELECT S.store_id, S.store_owner_id, S.store_is_pickup, S.store_is_delivery, S.store_is_subscribe, S.store_name, S.store_address, S.store_address_detail,
+		S.store_address_latitude, S.store_address_longitude, S.store_phone, S.store_min_delivery_price, S.store_avg_delivery_predict_time, S.store_operation_hour, 
+		S.store_is_open, S.store_closed_date, S.store_introduce, S.store_introduce, S.store_made_in, S.store_view_count, S.store_pay_tier, S.store_delivery_fee, S.store_avg_score_number, S.store_ip_path,
+		S.store_img_thumbnail_path, S.store_img_path,
+		( 6371 * ACOS( COS( RADIANS(#{lat}) ) * COS( RADIANS( S.store_address_latitude ) ) * COS( RADIANS( S.store_address_longitude ) - RADIANS(#{lng}) ) + SIN( RADIANS(#{lat}) ) * SIN( RADIANS( S.store_address_latitude ) ) ) ) AS distance,
+		SUM(m.menu_sale_count) AS total_sales
+		FROM STORE S
+		LEFT JOIN MENU m ON S.store_id=m.menu_store_id
+		<include refid="order"></include>
+		GROUP BY S.store_id
+		<![CDATA[having distance < 2]]>
+		ORDER BY total_sales DESC, S.store_avg_score_number DESC
+	</select>
+	<select id="selectByDistanceOrderByHeartCount" resultType="storelistdto" parameterType="hashMap">
+		SELECT S.store_id, S.store_owner_id, S.store_is_pickup, S.store_is_delivery, S.store_is_subscribe, S.store_name, S.store_address, S.store_address_detail,
+		S.store_address_latitude, S.store_address_longitude, S.store_phone, S.store_min_delivery_price, S.store_avg_delivery_predict_time, S.store_operation_hour, 
+		S.store_is_open, S.store_closed_date, S.store_introduce, S.store_introduce, S.store_made_in, S.store_view_count, S.store_pay_tier, S.store_delivery_fee, S.store_avg_score_number, S.store_ip_path,
+		S.store_img_thumbnail_path, S.store_img_path,
+		( 6371 * ACOS( COS( RADIANS(#{lat}) ) * COS( RADIANS( S.store_address_latitude ) ) * COS( RADIANS( S.store_address_longitude ) - RADIANS(#{lng}) ) + SIN( RADIANS(#{lat}) ) * SIN( RADIANS( S.store_address_latitude ) ) ) ) AS distance,
+		COUNT(H.heart_member_id) AS total_hearts
+		FROM STORE S
+		LEFT JOIN HEART H ON S.store_id=H.heart_store_id
+		<include refid="order"></include>
+		GROUP BY S.store_id
+		<![CDATA[having distance < 2]]>
+		ORDER BY total_hearts DESC, S.store_avg_score_number DESC
+	</select>
+	<select id="selectByDistanceOrderByDistance" resultType="storelistdto" parameterType="hashMap">
+		SELECT store_id, store_owner_id, store_is_pickup, store_is_delivery, store_is_subscribe, store_name, store_address, store_address_detail, store_address_latitude, store_address_longitude, store_phone,
+				store_min_delivery_price, store_avg_delivery_predict_time, store_operation_hour, store_is_open, store_closed_date, store_introduce, store_made_in, store_view_count, store_pay_tier, store_delivery_fee, store_avg_score_number, store_ip_path,
+				store_img_thumbnail_path, store_img_path,
+				( 6371 * ACOS( COS( RADIANS(#{lat}) ) * COS( RADIANS( store_address_latitude ) ) * COS( RADIANS( store_address_longitude ) - RADIANS(#{lng}) ) + SIN( RADIANS(#{lat}) ) * SIN( RADIANS( store_address_latitude ) ) ) ) AS distance
+		FROM STORE
+		<include refid="order"></include>
+		<![CDATA[having distance < 2]]>
+		ORDER BY distance ASC, store_avg_score_number DESC
+	</select>
+	<select id="selectMenuNamesById" resultType="com.shinhan.dto.MenuTimeVO" parameterType="int">
+		<![CDATA[
+		SELECT menu_time, GROUP_CONCAT(menu_name SEPARATOR ', ') AS menu_names
+		FROM MENU
+		WHERE menu_store_id = #{store_id} AND menu_category <> 1
+		GROUP BY menu_time;
+		]]>
+	</select>
+</mapper>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.firstzone.pushAlarm">
+
+
+	<insert id="PushAlarmInsert" parameterType="pushalarmDTO">
+		insert into
+		PUSH_ALARM
+		(push_alarm_store_id,push_alarm_title,push_alarm_content,push_alarm_category_id,push_alarm_datetime,push_alarm_to_target_id)
+		values(#{push_alarm_store_id},#{push_alarm_title},#{push_alarm_content},#{push_alarm_category_id},#{push_alarm_datetime},#{push_alarm_to_target_id})
+	</insert>
+
+	<select id="PushAlarmCategorySelect"
+		resultType="pushalarmcategoryvo">
+		SELECT *
+		FROM PUSH_ALARM_CATEGORY
+	</select>
+
+	<select id="PushAlarmList" parameterType="int" resultType="pushalarmvo" >
+		SELECT *
+		FROM PUSH_ALARM
+		WHERE push_alarm_store_id=#{push_alarm_store_id}
+		ORDER BY push_alarm_datetime DESC
+	</select>
+	
+	<select id="PushAlarmResend" parameterType="int" resultType="pushalarmvo" >
+		SELECT *
+		FROM PUSH_ALARM
+		WHERE push_alarm_id=#{push_alarm_id}
+	</select>
+	
+</mapper>

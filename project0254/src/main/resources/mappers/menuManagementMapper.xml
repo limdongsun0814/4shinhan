@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.firstzone.menu">
+
+	<select id="selectMenuByMenuId" resultType="menuvo"
+		parameterType="int">
+		select *
+		from MENU
+		where menu_id = #{aa}
+	</select>
+
+	<update id="menuManagementUpdate" parameterType="menuvo">
+		UPDATE MENU set
+		menu_id=#{menu_id},
+		menu_store_id=#{menu_store_id},
+		menu_category=#{menu_category},
+		menu_name=#{menu_name},
+		menu_image_path=#{menu_image_path},
+		menu_thumb_image_path=#{menu_thumb_image_path},
+		menu_count=#{menu_count},
+		menu_price=#{menu_price},
+		menu_describe=#{menu_describe},
+		menu_is_signature=#{menu_is_signature},
+		menu_is_hot=#{menu_is_hot},
+		menu_is_subscribe=#{menu_is_subscribe},
+		menu_discount_price=#{menu_discount_price},
+		menu_time=#{menu_time},
+		menu_making_count=#{menu_making_count}
+		where
+		menu_id=#{menu_id}
+	</update>
+
+	<insert id="menuManagementInsert" parameterType="menuvo"
+		useGeneratedKeys="true" keyProperty="menu_id">
+		insert into MENU
+		(menu_store_id,menu_category,
+		menu_name,menu_image_path,menu_thumb_image_path,menu_count,menu_price,menu_describe,menu_is_signature,menu_is_hot,menu_is_subscribe,menu_discount_price,menu_time)
+		values(#{menu_store_id},#{menu_category},#{menu_name},#{menu_image_path},#{menu_thumb_image_path},#{menu_count},#{menu_price},#{menu_describe},#{menu_is_signature},#{menu_is_hot},#{menu_is_subscribe},#{menu_discount_price},#{menu_time})
+	</insert>
+	
+	<delete id="menuDelete" parameterType="int">
+		DELETE FROM MENU
+		WHERE menu_id = #{aa}
+	</delete>
+
+
+</mapper>

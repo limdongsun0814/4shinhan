@@ -1,0 +1,28 @@
+
+
+@font-face {
+    font-family: 'SeoulNamsanM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+   font-family: 'SeoulNamsanM';
+}
+#find_id_content p{
+	
+	margin-top 0;
+	text-align: center;
+}
+.find_id_content input {
+	align-items: flex-start;
+	margin-left : 160px;
+}
+
+#find_id_content form button {
+    margin-left: 160px;
+    margin-top: 10px; 
+}
+ 
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="net.firstzone.menu">
+	<select id="selectAllByStoreId" resultType="menuvo" parameterType="int">
+		select * 
+		from MENU
+		where menu_store_id = #{aa}
+	</select>
+	
+	<update id="soldOutMenu" parameterType="int">
+		update MENU
+		set
+		menu_count = 0
+		where
+		menu_id = #{menu_id}
+	</update>
+	<update id="soldOutByCategory" parameterType="int">
+		update MENU
+		set
+		menu_count = 0
+		where
+		menu_category = #{aa}
+	</update>
+	
+	<update id="updateMenuCnt" parameterType="map">
+		update MENU
+		set
+		menu_count = #{menu_count}
+		where
+		menu_id = #{menu_id}
+	</update>
+	
+	<update id="updateDiscount" parameterType="map">
+		update MENU
+		set
+		menu_discount_price = #{menu_discount_price}
+		where
+		menu_id in ${menus}
+	</update>
+	<select id="selectMenuBySearch" parameterType="map" resultType="menuvo">
+		select m.*
+		from MENU m
+		JOIN MENU_CATEGORY mc on m.menu_category = mc.menu_category_seq
+		where m.menu_store_id = #{store_id} 
+		and (m.menu_name like CONCAT('%', #{search_word}, '%')
+		or mc.menu_category_name like CONCAT('%', #{search_word}, '%'))
+	</select>
+	
+	
+	
+</mapper>

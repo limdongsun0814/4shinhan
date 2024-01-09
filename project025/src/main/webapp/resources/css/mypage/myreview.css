@@ -1,0 +1,102 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'SeoulNamsanM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	font-family: 'SeoulNamsanM';
+}
+
+
+span {
+	color: red;
+}
+
+
+.head {
+	display: inline-block;
+    background-color: #D8F49C;
+    padding: 20px 200px 20px 200px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+.boxing {
+	border: solid 3px black;
+	width: 768.81px;
+    display: flex;
+     flex-direction: column; /* 세로로 정렬합니다. */
+}
+
+.boxing .top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.boxing p {
+	text-align: right;
+}
+
+.review {
+    display: flex;
+    flex-direction: row; /* 세로로 정렬합니다. */
+    align-items: center; /* 가운데 정렬합니다. */
+}
+
+.left_content {
+	width: 230px;
+	height: 250px;
+	border: solid 1px black;
+	flex-direction: column;
+    display: flex; /* .left_content 내부 요소들을 수평으로 배치하기 위해 설정합니다. */
+    align-items: center; /* .left_content 내부 요소들을 세로로 가운데 정렬합니다. */
+}
+
+.right_content {
+	border: solid 1px black;
+	width: 535px;
+	height: 250px;
+}
+
+.image {
+	border: solid 1px black;
+	width: 150px;
+	height: 150px;
+	margin-top: 30px;
+}
+
+.delete {
+	margin-top: 15px;
+	width: 80px;
+	height: 30px;
+	border-radius: 10px;
+}
+
+.review_content {
+    display: flex;
+    flex-direction: column; /* 세로로 정렬합니다. */
+    align-items: flex-start; /* 왼쪽 정렬합니다. */
+}
+
+.text {
+    text-align: left; /* <p> 태그를 왼쪽 정렬합니다. */
+}
+
+.content {
+	width: 400px;
+	border: solid 3px blue;
+	margin: 0 auto;
+}
+
+
+.images {
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85px;
+}

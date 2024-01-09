@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.firstzone.storeCalculate">
+	
+	<!-- 부등호 있으면 오류. CDATA 안으로 넣어줘야 함. payment_product가 없어도 나옴 -->
+	<select id="selectCalculateDayCount"
+		resultType="com.shinhan.dto.CalculateDayCountDTO" parameterType="map">
+		<![CDATA[
+		SELECT DATE(payment_date) as date, COUNT(*) as count
+		FROM PAYMENT
+		WHERE payment_date >= #{startDate} AND payment_date < #{endDate}
+		AND payment_store_id = #{store_id}
+		GROUP BY date
+		ORDER BY date;
+		]]>
+	</select>
+	
+	
+	<select id="selectCalculateDayPrice"
+		resultType="com.shinhan.dto.CalculateDayPriceDTO" parameterType="map">
+		<![CDATA[
+		SELECT DATE(p.payment_date) AS date, SUM(pp.payment_product_price) AS price
+		FROM PAYMENT p
+		JOIN PAYMENT_PRODUCT pp ON p.payment_seq = pp.payment_product_payment_id
+		WHERE payment_date >= #{startDate} AND payment_date < #{endDate}
+		AND payment_store_id = #{store_id}
+		GROUP BY DATE(p.payment_date)
+		ORDER BY DATE(p.payment_date);
+		]]>
+	</select>
+
+
+	<select id="selectDoughnutMenuCount" resultType="com.shinhan.dto.CalculateMenuCountDTO" parameterType="map">
+		<![CDATA[
+		SELECT 
+	    CASE
+	        WHEN percentage <= 0.05 THEN '기타'
+	        ELSE m.menu_name
+	    END AS menu_name,
+	    SUM(total_count) AS total_count
+		FROM (
+	    SELECT 
+	        pp.payment_product_menu_id,
+	        SUM(pp.payment_product_count) AS total_count,
+	        SUM(pp.payment_product_count) / (SELECT SUM(pp2.payment_product_count) FROM PAYMENT_PRODUCT AS pp2) AS percentage
+	    FROM 
+	        PAYMENT AS p
+	        JOIN PAYMENT_PRODUCT AS pp ON p.payment_seq = pp.payment_product_payment_id
+	    WHERE 
+	        p.payment_date BETWEEN #{startDate} AND #{endDate}
+	        AND p.payment_store_id = #{store_id}
+	    GROUP BY 
+	        pp.payment_product_menu_id
+		) AS subquery
+		JOIN MENU AS m ON m.menu_id = subquery.payment_product_menu_id
+		GROUP BY 
+	    CASE
+	        WHEN percentage <= 0.05 THEN '기타'
+	        ELSE m.menu_name
+	    END;
+		]]>
+	</select>
+	
+	<select id="selectDoughnutMenuPrice" resultType="com.shinhan.dto.CalculateMenuPriceDTO" parameterType="map">
+		<![CDATA[
+		SELECT 
+	    CASE
+	        WHEN percentage <= 0.05 THEN '기타'
+	        ELSE m.menu_name
+	    END AS menu_name,
+	    SUM((payment_product_price - payment_product_discount_price) * total_count) AS total_price
+		FROM (
+	    SELECT 
+	        pp.payment_product_menu_id,
+	        pp.payment_product_price AS payment_product_price,
+	        pp.payment_product_discount_price AS payment_product_discount_price,
+	        SUM(pp.payment_product_count) AS total_count,
+	        SUM(pp.payment_product_price - pp.payment_product_discount_price) / (SELECT SUM(pp2.payment_product_price - pp2.payment_product_discount_price) FROM PAYMENT_PRODUCT AS pp2) AS percentage
+	    FROM 
+	        PAYMENT AS p
+	        JOIN PAYMENT_PRODUCT AS pp ON p.payment_seq = pp.payment_product_payment_id
+	    WHERE 
+	        p.payment_date BETWEEN #{startDate} AND #{endDate}
+	        AND p.payment_store_id = #{store_id}
+	    GROUP BY 
+	        pp.payment_product_menu_id
+		) AS subquery
+		JOIN MENU AS m ON m.menu_id = subquery.payment_product_menu_id
+		GROUP BY 
+	    CASE
+	        WHEN percentage <= 0.05 THEN '기타'
+	        ELSE m.menu_name
+	    END;
+		]]>
+	</select>
+	
+</mapper>

@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+input[type="radio"] {
+    display: none;
+}
+
+.select {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 800px;
+    height: 150px;
+    background-color: rgba(235, 200, 145, 0.2);
+    border-radius: 10px;
+}
+
+/* 주문 리스트 */
+.order_list_area {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.order_area {
+    width: 1120px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.order_area p {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+/* 주문 리스트 조회바 */
+.order_list_select {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid rgba(235, 200, 145, 0.2);
+}
+
+/* 주문 리스트 조회바(주문 필터) */
+.orderType_area, .date {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-evenly;
+}
+
+.orderType,
+.sortType {
+    display: block;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 50px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.orderType>.orderType_title,
+.sortType>.sortType_title {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.orderType_title,
+.sortType_title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ff273d;
+}
+
+.orderType_title>span,
+.sortType_title>span {
+    font-size: 12px;
+    font-weight: 500;
+    color: #333;
+}
+
+.orderType.on,
+.sortType.on {
+    background: #fff6f6;
+    border: 1px solid #ff273d;
+}
+
+.order_search_button {
+	background: none;
+    border: none;
+    outline: none;
+    width: 100px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}

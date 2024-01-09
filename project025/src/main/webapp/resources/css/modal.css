@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+/* #add_address_form {
+	width: 1400px;
+	height: 1440px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+#add_address_form.hidden {
+	display: none;
+}
+
+.add_address_form{
+	margin-top: 10%;
+}
+ */
+
+/* #add_address_form{
+ 
+ 	background: rgba(0, 0, 0, 0.5);
+ }
+ 
+ 
+#add_address_form .form-group{
+  
+  margin-top: 20%;
+  
+  }
+   */
+div#add_adress_content {
+	background-image: url('webapp/resources/images/025logo.png');
+	background-repeat: no-repeat; width : 900px;
+	height: 300px;
+	position: fixed;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: center;
+	width: 900px;
+}

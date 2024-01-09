@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shinhan.payment">
+	<select id="insert_payment" statementType="CALLABLE"  parameterType="paymentdto" >
+		{ CALL insert_payment(
+			#{payment_member_id},
+			#{payment_store_id},
+			#{payment_type},
+			#{payment_request_content},
+			#{payment_get_id},
+			#{payment_address},
+			#{payment_address_detail},
+			#{payment_address_latitude},
+			#{payment_address_longitude},
+			#{mileage},
+			#{payment_seq,mode=OUT,jdbcType=INTEGER}
+		)
+		}
+	</select>
+	<insert id="insert_payment_product" parameterType="paymentInsert">
+		INSERT INTO PAYMENT_PRODUCT (payment_product_payment_id,payment_product_menu_id,payment_product_count,payment_product_price,payment_product_discount_price) 
+		SELECT #{payment_product_payment_id},m.menu_id,#{payment_product_count},#{payment_product_price},#{payment_product_discount_price} FROM MENU m JOIN STORE s ON(m.menu_store_id=s.store_id) WHERE s.store_name=#{store_name} AND m.menu_name=#{menu_name}
+	</insert>
+	<update id="menu_update" parameterType="paymentInsert">
+		UPDATE MENU SET menu_count = (SELECT m.menu_count FROM MENU m JOIN STORE s ON(m.menu_store_id=s.store_id) WHERE s.store_name=#{store_name} AND m.menu_name=#{menu_name}) - #{payment_product_count}
+		WHERE menu_id = (SELECT m.menu_id FROM MENU m JOIN STORE s ON(m.menu_store_id=s.store_id) WHERE s.store_name=#{store_name} AND m.menu_name=#{menu_name})
+	</update>
+	<select id="get_payment_date" parameterType="int" resultType="String">
+		SELECT p.payment_date FROM PAYMENT p WHERE p.payment_seq=#{aa};
+	</select>
+	<select id="selectPaymentByMemberId" parameterType="String" resultType="com.shinhan.dto.PaymentOrderDTO">
+		select p.*, s.store_name, SUM(pp.payment_product_count) as total_amount, SUM(pp.payment_product_price) as totalPrice, SUM(pp.payment_product_discount_price) as totalDiscountPrice  
+		from PAYMENT p
+		JOIN STORE s on p.payment_store_id = s.store_id
+		JOIN PAYMENT_PRODUCT pp on p.payment_seq = pp.payment_product_payment_id
+		where payment_member_id = #{aa}
+		and p.payment_status_id in (0,1,2,3,4)
+		group by pp.payment_product_payment_id
+		ORDER by p.payment_date DESC
+	</select>
+	<select id="sellectAllPaymentGet" resultType="paymentgetvo">
+		select *
+		from PAYMENT_GET
+	</select>
+	<update id="paymentMerchantUidUpdate" parameterType="paymentdto">
+		update PAYMENT set payment_merchant_uid = #{payment_merchant_uid} where payment_seq = (#{payment_seq}-1)
+	</update>
+	<!-- product 가져오는 방식 수정. 한 번에 가져오게 -->
+	<select id="selectProductByPaymentId"
+		resultType="com.shinhan.dto.paymentProductVO" parameterType="int">
+		select pp.*, m.menu_name as payment_product_menu_name 
+		from PAYMENT_PRODUCT pp
+		JOIN MENU m ON pp.payment_product_menu_id = m.menu_id
+		where payment_product_payment_id = #{payment_id}
+	</select>
+	
+	<select id="selectAllProductByPaymentIdList"
+		resultType="com.shinhan.dto.paymentProductVO" parameterType="java.util.List">
+		select pp.*, m.menu_name as payment_product_menu_name 
+		from PAYMENT_PRODUCT pp
+		JOIN MENU m ON pp.payment_product_menu_id = m.menu_id
+		where payment_product_payment_id in 
+		<foreach collection="list" item="item" open="(" separator="," close=")">
+    	#{item}
+  		</foreach>
+	</select>
+	
+	<update id="updatePaymentStatus" parameterType="map">
+		UPDATE PAYMENT
+		set payment_status_id = #{status}
+		WHERE payment_seq = #{seq}
+	</update>
+</mapper>

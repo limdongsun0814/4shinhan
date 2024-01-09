@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+.container123 {
+	display: flex;
+    flex-direction: column;
+    width: 900px;
+    align-items: flex-start;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.order_detail_top, .pay_info_area {
+	margin-bottom: 30px;
+}
+
+.sub_title {
+	display: flex;
+	font-size: 30px;
+	font-weight: bold;
+	margin: 20px;
+	align-items: flex-end;
+}
+.sub_title1 {
+	display: flex;
+	font-size: 30px;
+	font-weight: bold;
+	margin: 20px;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+.left1 {
+	display: flex;
+}
+
+.top_box {
+	border: 1px solid #A6A6A6;
+	width: 760px;
+	height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 20px;
+    margin-left: 40px;
+}
+
+.order_detail_top {
+	width: auto;
+	display: flex;
+	flex-direction: column;
+}
+.order_detail_middle {
+	width: 800px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 30px;
+}
+
+.store_name img {
+	width: 30px; /* 원하는 너비로 설정 */
+    height: auto; /* 높이를 자동으로 조절하여 비율을 유지합니다 */
+}
+
+table {
+	text-align: center;
+	border-collapse: collapse;
+	border-color: #A6A6A6;
+	margin-left: 40px;
+	font-size: 20px;
+}
+
+.order_address_table {
+	text-align: left;
+	margin-bottom: 30px;
+}
+.order_address_table td {
+	height: 50px;
+	padding: 10px;
+}
+.order_detail_table {
+	margin-bottom: 30px;
+}
+
+.order_detail_table th {
+	height: 50px;
+}
+.order_detail_table td {
+	height: 150px;
+}
+.order_address_table th {
+	text-align: center;
+}
+
+th {
+	background-color: rgba(235, 200, 145, 0.2);
+}
+
+.order_request_area {
+	border-top: 1px solid #A6A6A6;
+	border-bottom: 1px solid #A6A6A6;
+	margin-left: 40px;
+	height: 100px;
+	padding: 20px;
+    font-size: 20px;
+}
+
+.pay_info {
+	border-top: 1px solid #A6A6A6;
+	margin-left: 40px;
+	height: 250px;
+	display: flex;
+	flex-direction: row;
+	width: 760px;
+	justify-content: space-around;
+}
+
+.button123 {
+	width: 150px;
+	height: 50px;
+	background-color: #A6A6A6;
+	color: white;
+	border-radius: 10px;
+	font-size: 25px;
+	margin-top: 30px;
+	margin-bottom: 80px;
+}
+
+.left_pay_info {
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+	align-items: center;
+	text-align: center;
+}
+
+.right_pay_info {
+	text-align: center;
+	width: 400px;
+	margin-top: 30px;
+	border-left: 1px solid #A6A6A6;
+}
+
+.down_left_pay_info {
+	display: flex;
+	width: 300px;
+	justify-content: space-around;
+}
+.up_left_pay_info {
+	margin-top: 30px;
+}
+
+.up_left_pay_info p, .right_pay_info p {
+	font-size: 25px;
+	font-weight: bold;
+	color: red;
+}
+
+.total_amount {
+	font-size: 25px;
+	font-weight: bold;
+	color: red;
+}
+
+.gray_info_area {
+	display: flex;
+    justify-content: flex-end;
+    background-color: #D9D9D9;
+    margin-left: 40px;
+    padding:30px;
+    flex-direction: column;
+    align-items: flex-end;
+    border-top: 1px solid #A6A6A6;
+    border-bottom: 1px solid #A6A6A6;
+}
+
+
+.gray_info_area p {
+    font-size: 25px;
+}
+.gray_info_area span {
+	color: red;
+	font-weight: bold;
+}
+
+.mileage {
+	display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid #A6A6A6;
+    padding:30px;
+}
+
+.mileage span {
+	color: red;
+}
+
+.menu_name {
+	display: flex;
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.firstzone.payment">
+	<select id="selectNowPaymentByStoreId" resultType="paymentvo"
+		parameterType="int">
+		select *
+		from PAYMENT
+		where payment_store_id = #{store_id}
+		and payment_status_id in
+		(0, 1, 2)
+	</select>
+
+	<select id="selectProductByPaymentId"
+		resultType="paymentproductvo" parameterType="int">
+		SELECT pp.*, m.menu_name as payment_product_menu_name
+		from PAYMENT_PRODUCT pp
+		JOIN MENU m ON pp.payment_product_menu_id = m.menu_id
+		where payment_product_payment_id = #{payment_id};
+	</select>
+
+	<select id="sellectAllPaymentGet" resultType="paymentgetvo">
+		select *
+		from PAYMENT_GET
+	</select>
+
+	
+	<select id="selectNowPaymentDTOByStoreId" resultType="paymentdto" parameterType="int">
+		SELECT p.*, SUM(pp.payment_product_price) AS totalPrice , SUM(pp.payment_product_discount_price) AS totalDiscountPrice, SUM(pp.payment_product_count) AS totalCount, m.member_ip_path, m.member_phone, pt.payment_type AS payment_type_name
+		from PAYMENT p
+		join PAYMENT_PRODUCT pp on p.payment_seq = pp.payment_product_payment_id
+		JOIN MEMBER m ON p.payment_member_id = m.member_id
+		JOIN PAYMENT_TYPE pt on p.payment_type = pt.payment_type_seq
+		where payment_store_id = #{aa}
+		and payment_status_id in (0, 1, 2)
+		group by p.payment_seq
+	</select>
+	
+	<update id="updatePaymentStatus" parameterType="paystatusdto">
+	UPDATE PAYMENT
+	set
+	payment_status_id = #{payment_status_id}
+	where payment_seq = #{payment_seq}
+	</update>
+	
+	<select id="payHistorySearchByMonth" resultType="paymentdto" parameterType="com.shinhan.dto.PayHistorySearchDTO">
+	SELECT p.*, SUM(pp.payment_product_price) AS totalPrice , SUM(pp.payment_product_discount_price) AS totalDiscountPrice, SUM(pp.payment_product_count) AS totalCount, m.member_ip_path,
+	 	pg.payment_get_content, ps.payment_status_name, GROUP_CONCAT(me.menu_name SEPARATOR ',') AS abstract_menu_name, m.member_phone
+	from PAYMENT p
+	join PAYMENT_PRODUCT pp on p.payment_seq = pp.payment_product_payment_id
+	JOIN MEMBER m ON p.payment_member_id = m.member_id
+	JOIN PAYMENT_GET pg ON p.payment_get_id = pg.payment_get_id
+	JOIN PAYMENT_STATUS ps ON p.payment_status_id = ps.payment_status_id
+	JOIN MENU me ON pp.payment_product_menu_id = me.menu_id
+	WHERE
+	YEAR(p.payment_date) = #{year}
+    AND MONTH(p.payment_date) = #{month}
+    AND p.payment_store_id = #{store_id}
+	group by p.payment_seq;
+	</select>
+	
+</mapper>

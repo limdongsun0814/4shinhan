@@ -1,0 +1,76 @@
+body {
+	margin: 0;
+}
+
+.header {
+	background-color: #FFFCF0;
+	/*background-color: #FFF6EA;*/
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px;
+    box-sizing:border-box;
+    height:9%;
+}
+
+.logo {
+    margin-left: 3%;
+	display: flex; 
+}
+
+.logo img {
+    width: 100%;
+}
+
+.logo, .auth {
+    display: flex;
+    align-items: center;
+}
+
+.auth a {
+    margin-right: 50px;
+    text-decoration: none;
+    color: gray;
+}
+
+@charset "UTF-8";
+@font-face {
+    font-family: 'SeoulNamsanM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+   font-family: 'SeoulNamsanM';
+}
+
+select{
+    background: #FFFCF0;
+}
+
+.owner_title{
+	color:#FF6464;
+	font-size:1.4rem;
+	font-weight:600;
+	letter-spacing:-1px;
+	margin:0.5rem;
+}
+
+.flexbox {
+	display:flex;
+}
+.address_auth{
+	width: 200px;
+	padding: 10px;
+	border: 1px solid #8B4513;
+	border-radius: 4px;
+	background-color: #FFFCF0;
+	color: #8B4513;
+	font-size: 16px;
+	margin-left: 10px;
+	margin-right: 10px;
+	-webkit-appearance: menulist; /* 화살표 다시 보이게 하기 (크롬, 사파리) */
+	-moz-appearance: menulist; /* 화살표 다시 보이게 하기 (파이어폭스) */
+	appearance: menulist; /* 화살표 다시 보이게 하기 (기타 브라우저) */
+}

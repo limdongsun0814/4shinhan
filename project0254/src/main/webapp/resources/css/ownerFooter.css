@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin: auto; /* 좌우 중앙 정렬을 위해 auto 사용 */
+    border-top: solid 1px;
+    padding: 25px 20px 20px; /* 간격을 주기 위해 패딩 추가 */
+    background-color: #FFFCF0;
+    box-sizing:border-box;
+    height:21%;
+}
+
+.footerlogo img {
+    width: 250px; /* 이미지의 가로 크기를 조절합니다 */
+    height: auto; /* 높이를 자동으로 조절하여 가로세로 비율 유지 */
+    margin-left: 100px;
+}
+
+.followUs,
+.usefulLink,
+.contact {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.sns a,
+.usefulLinks a {
+	text-decoration: none;
+}
+
+.sns a {
+    margin-right: 10px; /* 우측 간격 설정 */
+}
+
+.usefulLinks a {
+	color: black;
+	margin-bottom: 10px;
+}
+
+.contacts {
+	margin-left: 16px;
+}
+
+.text {
+    text-align: right;
+    font-weight: bold;
+    font-size: 20px;
+}

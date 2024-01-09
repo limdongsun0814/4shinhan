@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shinhan.menu">
+	<select id="selectByStore" resultType="menuvo">
+		select * from MENU
+		where menu_store_id=#{store_id}
+	</select>
+	
+	<select id="selectById" resultType="menuvo">
+		select * from MENU
+		where menu_id=#{id}
+	</select>
+	
+	<select id="selectReviewByMenu" resultType="reviewvo">
+		select *
+		from MEMBER_REVIEW as member_review, (select payment_product_payment_id 
+											  from PAYMENT_PRODUCT
+											  where payment_product_menu_id=#{menu_id}) as payment_product
+		where member_review.payment_seq=payment_product.payment_product_payment_id
+	</select>
+	
+	<select id="selectMenuOrderBySales" resultType="bestmenu">
+		select m.menu_id, s.store_name, m.menu_category, m.menu_name, m.menu_thumb_image_path, m.menu_price, m.menu_is_signature, m.menu_discount_price
+		from MENU m, STORE s
+		where m.menu_store_id=s.store_id
+		order by m.menu_sale_count DESC
+		limit 4
+	</select>
+	
+	<select id="selectMenuRandomly" resultType="bestmenu">
+		select m.menu_id, s.store_name, m.menu_category, m.menu_name, m.menu_thumb_image_path, m.menu_price, m.menu_is_signature, m.menu_discount_price
+		from MENU m, STORE s
+		where m.menu_store_id=#{store_id}
+		and m.menu_store_id=s.store_id
+		order by RAND()
+		limit 4
+	</select>
+	
+	<!-- 페이지네이션 -->
+	<select id="selectMenuPagination" resultType="menuvo" parameterType="com.shinhan.page.ItemCriteria" >
+		select menu_id, menu_store_id, menu_category, menu_name, menu_image_path, menu_thumb_image_path, menu_count, menu_sale_count,
+		menu_price, menu_describe, menu_is_signature, menu_is_hot, menu_is_subscribe, menu_discount_price, menu_time, menu_making_count
+		FROM (
+		select menu_id, menu_store_id, menu_category, menu_name, menu_image_path, menu_thumb_image_path, menu_count, menu_sale_count,
+		menu_price, menu_describe, menu_is_signature, menu_is_hot, menu_is_subscribe, menu_discount_price, menu_time, menu_making_count,
+		ROW_NUMBER() OVER(
+		<include refid="sort" />
+		) AS RNUM
+		FROM MENU
+		WHERE menu_store_id=#{store_id}
+		<include refid="category" />
+		) AS TMP
+		WHERE RNUM BETWEEN #{row_start} AND #{row_end}
+		<include refid="sort" />
+	</select>
+	<!-- 메뉴 검색 -->
+	<select id="selectMenuBySearch" resultType="menuvo" parameterType="hashMap" >
+		select menu_id, menu_store_id, menu_category, menu_name, menu_image_path, menu_thumb_image_path, menu_count, menu_sale_count,
+		menu_price, menu_describe, menu_is_signature, menu_is_hot, menu_is_subscribe, menu_discount_price, menu_time, menu_making_count
+		FROM (
+		select menu_id, menu_store_id, menu_category, menu_name, menu_image_path, menu_thumb_image_path, menu_count, menu_sale_count,
+		menu_price, menu_describe, menu_is_signature, menu_is_hot, menu_is_subscribe, menu_discount_price, menu_time, menu_making_count,
+		ROW_NUMBER() OVER(
+		<include refid="sort" />
+		) AS RNUM
+		FROM MENU
+		WHERE menu_store_id=#{store_id}
+		and menu_name like CONCAT('%', #{keyword}, '%')
+		) AS TMP
+		WHERE RNUM BETWEEN #{row_start} AND #{row_end}
+		<include refid="sort" />
+	</select>
+	
+	<!-- 페이지네이션에 필요한 메뉴 개수 -->
+	<select id="menuCount" resultType="int">
+		select count(*) from MENU
+		where menu_store_id=#{store_id}
+		<include refid="category" />
+	</select>
+	
+	<!-- 메뉴 검색 페이지네이션에 필요한 메뉴 개수 -->
+	<select id="menuCountBySearch" resultType="int" parameterType="hashMap">
+		select count(*) from MENU
+		where menu_store_id=#{cri.store_id}
+		and menu_name like CONCAT('%', #{keyword}, '%')
+	</select>
+	
+	<!-- 정렬 -->
+	<sql id="sort">
+		<if test="sort==''">
+			order by menu_id DESC
+		</if>
+		<if test="sort==null">
+			order by menu_id DESC
+		</if>
+		<if test="sort=='latest'">
+			order by menu_id DESC
+		</if>
+		<if test="sort=='popular'">
+			order by menu_sale_count DESC
+		</if>
+		<if test="sort=='pricedesc'">
+			order by (menu_price-menu_discount_price) DESC
+		</if>
+		<if test="sort=='priceasc'">
+			order by (menu_price-menu_discount_price) ASC
+		</if>
+	</sql>
+	
+	<!-- 카테고리 -->
+	<sql id="category">
+		<if test="category==1">
+			and menu_category=1
+		</if>
+		<if test="category==2">
+			and menu_category=2
+		</if>
+		<if test="category==3">
+			and menu_category=3
+		</if>
+		<if test="category==4">
+			and menu_category=4
+		</if>
+		<if test="category==5">
+			and menu_category=5
+		</if>
+		<if test="category==6">
+			and menu_category=6
+		</if>
+		<if test="category==7">
+			and menu_category=7
+		</if>
+		<if test="category==8">
+			and menu_category=8
+		</if>
+		<if test="category==9">
+			and menu_category=9
+		</if>
+		<if test="category==10">
+			and menu_is_signature=1
+		</if>
+	</sql>
+	<select id="selectMenuCategory" resultType="menucatevo">
+		select m_c.menu_category_seq, m_c.menu_category_name
+		FROM MENU_CATEGORY m_c
+		INNER JOIN MENU m ON m_c.menu_category_seq=m.menu_category
+		WHERE m.menu_store_id=#{store_id}
+		group by m.menu_category
+		order by m_c.menu_category_seq
+	</select>
+</mapper>

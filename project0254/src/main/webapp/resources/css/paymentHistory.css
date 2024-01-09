@@ -1,0 +1,212 @@
+	.all_container {
+    	padding: 0 20%;
+    	margin-bottom:7%;
+    	width:80%;
+    	position:relative;
+    
+    }
+    .goButton{
+    	position:absolute;
+    	top:14%;
+    	right:20%;
+    	text-align:center;
+    }
+    .goButton > img {
+    	width:1.8rem;
+    }
+    .goButton div{
+    	font-weight:600;
+    	font-size:0.8rem;
+    }
+    .color_legend{
+    	position:absolute;
+    	top:26%;
+    	right:19%;
+    }
+    .color_box{
+    	margin-bottom:10px;
+    	align-items:center;
+    	justify-content:space-between;
+    }
+    .color{
+    	width:2rem;
+    	margin-right:5px;
+    }
+    .color::after{
+    	display: block;
+  		content: "";
+    	padding-bottom:100%;
+    }
+    .ten:after{
+    	background-color:#F8C9DF;
+    }
+    .five:after{
+    	background-color:#B1D6E4;
+    }
+    .one:after{
+    	background-color:#D8F49C;
+    }
+    #table_container {
+    	margin-bottom:1.3rem;
+    }
+    #title_box{
+    	justify-content:space-between;
+    	flex-wrap:wrap;
+    	align-items:center;
+    }
+    #title_box h3{
+    	margin:1.2em 0;
+    }
+    .select_date {
+    	text-align:right;
+    	border-collapse: collapse;
+    }
+    .history_table {
+    	border:0.5px solid #B1D6E4;
+    	width:100%;
+    	border-collapse: collapse;
+    	border-radius: 5px;
+  		border-style: hidden;
+  		box-shadow: 0 0 0 1px #B1D6E4;
+   	
+    }
+	
+    .history_header{
+    	height:3rem;
+    	background-color:#B1D6E4;
+    	border-radius: 5px;
+    }
+    .history_header > th{
+    	font-size:1.3rem;
+    }
+    
+    .history_header > th:first-child{
+    	border-top-left-radius:5px;
+    }
+    
+    .history_header > th:last-child{
+    	border-top-right-radius:5px;
+    }
+    .history_table tr {
+    	border:1px solid #A6A6A6;
+    }
+    
+    .history_table td {
+    	text-align:center;
+    	font-size:1.15rem;
+    	font-weight:500;
+    	padding:10px;
+    	border:none;
+    }
+    .abstract_menu_name {
+    	white-space: nowrap;
+  		overflow: hidden;
+  		text-overflow: ellipsis;
+  		max-width: 100px;
+    }
+    
+    .payment_container{
+    	width:100%;
+    	border:0.5px solid #B1D6E4;
+    	border-radius: 5px;
+    	background-color:#FCFCFC;
+    }
+    .payment_title{
+    	height:3rem;
+    	background-color:#B1D6E4;
+    	border-top-left-radius: 5px;
+    	border-top-right-radius: 5px;
+    	font-size:1.5rem;
+    	justify-content:space-between;
+    	padding:0 1rem;
+    	align-items:center;
+    }
+    .payment_title > *{
+    	color:#42220C;
+    	font-weight:600;
+    }
+    .payment_text_container{
+    	border-top: 0.5px solid #a6a6a6; 
+    }
+    .payment_request {
+    	height:5rem;
+    	border-bottom:0.5px solid #a6a6a6; 
+    	align-items:center;
+    }
+    .req_title {
+    	width:18%;
+    	text-align:center;
+    	vertical-align:center;
+    	color:#808080;
+    	font-size:1.3rem;
+    	font-weight:600;
+    }
+    .req_content {
+    	width:80%;
+    	height:80%;
+    	margin:10px;
+    	padding:10px;
+    	background-color: #fff;
+    	text-align:left;
+    	border: 1px solid #a6a6a6;
+    	border-radius: 5px;
+    	box-sizing:border-box;
+    }
+	.payment_member_info, .payment_address_info{
+		align-items:center;
+	}
+	
+	.payment_address_info > .req_content, .req_title{
+		margin-top:0;
+	}
+	.payment_address_info > .req_title{
+		padding-bottom:10px;
+	}
+	.payment_order_container {
+		border-top:0.5px solid #a6a6a6; 
+	}
+	.payment_order_info {
+		margin: 0 1rem;
+		justify-content:space-between;
+		align-items:end;
+	}
+	.payment_order_info > h6 {
+		font-size:1.1rem;
+		margin:0px;
+	}
+	.order_time {
+		font-size:1rem;
+		font-weight:500;
+		margin-top: 10px;
+	}
+	.product_head{
+		padding-left:1.5rem;
+	}
+	.product_menu {
+		padding-left:1rem;
+	}
+	.payment_product_container {
+		display:block;
+		border:1px solid #808080;
+		border-radius:5px;
+	}
+	.product_row {
+		display:flex;
+		border-bottom: 0.5px solid #a6a6a6;
+		
+	}
+	.product_row:last-child {
+		border-bottom: none;
+	}
+
+	.product_row > h4 {
+		width:14%;
+		text-align:center;
+	}
+	.product_row > h4:nth-child(1) {
+		width:60%;
+		text-align:left;
+		margin-left:1rem;
+	}
+	
+	

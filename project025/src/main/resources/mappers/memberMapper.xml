@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shinhan.member">
+	<select id="selectAll" resultType="membervo">
+		select * from MEMBER
+	</select>
+
+	<select id="selectById" resultType="membervo"
+		parameterType="string">
+		select * from MEMBER
+		where member_id=#{id}
+	</select>
+	
+	<select id="getPasswordByMemberId" resultType="string" parameterType="string">
+		select member_password from MEMBER
+		where member_id = #{mid}
+	</select>
+	<select id="getBreadAlarm" resultType="map" parameterType="string">
+		SELECT pa.*, s.store_name, ALARM_BOX_MEMBER.*
+		FROM PUSH_ALARM pa
+		JOIN STORE s ON pa.push_alarm_store_id = s.store_id
+		JOIN ALARM_BOX_MEMBER ON pa.push_alarm_id = ALARM_BOX_MEMBER.alarm_box_push_alarm_id
+		WHERE pa.push_alarm_to_target_id = '찜'
+		AND pa.push_alarm_store_id IN (
+		    SELECT heart_store_id
+		    FROM HEART
+		    WHERE heart_member_id = #{mid}
+		)
+		ORDER BY pa.push_alarm_datetime DESC;
+	</select>
+	
+	<select id="getNoticeAlarm" resultType="map" parameterType="string">
+		SELECT pa.*, s.store_name
+		FROM PUSH_ALARM pa
+		JOIN STORE s ON pa.push_alarm_store_id = s.store_id
+		WHERE pa.push_alarm_to_target_id = '찜,구독'
+		AND pa.push_alarm_store_id IN (
+		    SELECT heart_store_id
+		    FROM HEART
+		    WHERE heart_member_id = #{mid}
+		)
+	</select>
+	
+	<select id="getSubscribeAlarm" resultType="map" parameterType="string">
+		SELECT pa.*, s.store_name
+		FROM PUSH_ALARM pa
+		JOIN STORE s ON pa.push_alarm_store_id = s.store_id
+		WHERE pa.push_alarm_to_target_id = '구독'
+		AND pa.push_alarm_store_id IN (
+		    SELECT heart_store_id
+		    FROM HEART
+		    WHERE heart_member_id = #{mid}
+		)
+	</select>
+	
+	<select id="countNewAlarm" parameterType="string" resultType="int">
+		SELECT COUNT(*)
+		FROM ALARM_BOX_MEMBER
+		WHERE alarm_box_member_id= #{mid}
+		AND alarm_box_is_checked=false
+	</select>
+	
+	<delete id="deleteMember" parameterType="string">
+		delete from MEMBER
+		where
+		member_id=#{aa}
+	</delete>
+	
+	<delete id="deleteAllAlarm" parameterType="string">
+		delete from ALARM_BOX_MEMBER
+		where
+		alarm_box_member_id=#{aa}
+	</delete>
+
+	<update id="updateMember"
+		parameterType="com.shinhan.dto.MemberUpdateDTO">
+		update MEMBER
+		set member_email=#{member_email},
+		member_address=#{member_address},
+		member_address_detail=#{member_address_detail},
+		member_address_latitude=#{member_address_latitude},
+		member_address_longitude=#{member_address_longitude},
+		member_nickname=#{member_nickname},
+		member_password=#{member_password}
+		where member_id=#{member_id}
+	</update>
+	
+	<update id="changeCheckAlarm"
+		parameterType="string">
+		update ALARM_BOX_MEMBER
+		set alarm_box_is_checked=true
+		where alarm_box_member_id=#{aa}
+	</update>
+
+	<!-- 주문시 배달 장소 정보 추가 -->
+	<insert id="addBaseMemberAddress" parameterType="signupdto">
+		INSERT INTO MEMBER_ADDRESS
+		(member_address_member_id,member_address,member_address_detail,member_address_latitude,member_address_longitude,
+		member_address_name)
+		SELECT member_id ,member_address ,
+		member_address_detail,member_address_latitude,member_address_longitude
+		, '회원가입 주소'
+		FROM MEMBER
+		WHERE member_id = #{id};
+	</insert>
+
+	<select id="get_memberaddress_list"
+		resultType="membseraddressdto" parameterType="String">
+		SELECT ma.member_address_member_id, ma.member_address_name,
+		ma.member_address, ma.member_address_detail
+		,ma.member_address_latitude ,ma.member_address_longitude ,
+		m.member_name, m.member_phone
+		FROM MEMBER m JOIN MEMBER_ADDRESS ma ON
+		m.member_id = member_address_member_id
+		WHERE m.member_id= #{id}
+	</select>
+	
+	<select id="get_address" parameterType="MemberAddressVO" resultType="MemberAddressVO">
+		SELECT * FROM MEMBER_ADDRESS m WHERE m.member_address_member_id = #{member_address_member_id} AND m.member_address_name=#{member_address_name};
+	</select>
+	
+	<select id="get_store_id" parameterType="getstoreid" resultType="int">
+		SELECT s.store_id FROM MENU m JOIN STORE s ON(s.store_id=m.menu_store_id) WHERE m.menu_name=#{menu_name} AND s.store_name = #{store_name}
+	</select>
+	
+	<select id="address_check" parameterType="membseraddressdto" resultType="int">
+		SELECT COUNT(*) FROM MEMBER_ADDRESS WHERE member_address_member_id = #{member_address_member_id} AND member_address_name=#{member_address_name}
+	</select>
+	<insert id="addMoreMemberAddress"
+		parameterType="membseraddressdto">
+		INSERT INTO MEMBER_ADDRESS
+		(member_address_member_id,member_address_name,member_address,member_address_detail,member_address_latitude,member_address_longitude)
+		VALUES (#{member_address_member_id},#{member_address_name},#{member_address},#{member_address_detail},#{member_address_latitude},#{member_address_longitude})	
+	</insert>
+	
+	<update id="updateMemberPathById" parameterType="map">
+	UPDATE MEMBER
+	SET 
+	member_ip_path = #{member_ip_path}
+	where
+	member_id = #{member_id}
+	</update>
+</mapper>

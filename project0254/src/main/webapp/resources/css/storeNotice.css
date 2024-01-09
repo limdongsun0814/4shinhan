@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SeoulNamsanM';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	font-family: 'SeoulNamsanM';
+}
+
+<style>
+
+.notice {
+	border: 1px solid red;
+	padding: 10px;
+	margin: 10px 0;
+	cursor: pointer;
+	transition: background-color .3s;
+}
+
+.notice:hover {
+	background-color: #f8d7da;
+}
+
+.notice-title {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.notice-content {
+	margin-top: 10px;
+	font-size: 14px;
+}
+</style>

@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+.marker_label {
+	background-color: gray;
+	padding: 10px;
+	color: white;
+	border-radius: 10px;
+	position:relative;
+}	
+
+/*.marker_label:after {
+	content:"";
+    position: absolute;
+	top: 35px; 
+	border-top: 10px solid gray;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 0px solid transparent; 
+    left: 50%;
+    transform: translate(-50%, 0%);
+}*/
+
+.overlaybox {
+	position:relative;
+	background-color:#CECEF6;
+	width:150px;
+	height:200px;
+	padding:15px 10px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	border: none;
+}
+.overlaybox:after {
+	content:"";
+    position: absolute;
+	top: 230px; 
+	border-top: 10px solid #CECEF6;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 0px solid transparent; 
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+.overlaybox div {
+	overflow:hidden;
+	margin:0;
+	padding:0;
+}
+.overlaybox .boxtitle {
+	display: flex;
+	color:black;
+	font-size:16px;
+	font-weight:bold;
+	background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png') no-repeat right 10px center;
+	margin-bottom:5px;
+}
+.overlaybox .first {
+	position:relative;
+	margin-bottom:8px;
+}
+.map_store_img{
+	width:150px;
+	height:130px;
+	border-radius: 5px;
+}
+.first .text {
+	color:#fff;
+	font-weight:bold;
+}
+.first .info {
+	position:absolute;
+	width:100%;
+	bottom:0;
+	background:rgba(0,0,0,0.4);
+	padding:7px 15px;
+	font-size:14px;
+	border-radius: 0px 0px 5px 5px;
+}
+
+
+
+/* 지도 커스텀 버튼 */
+
+.radius_border{
+	border:1px solid #919191;
+	border-radius:5px;
+}
+
+.custom_locationcontrol {
+	position:absolute;
+	top:10px;
+	left: 10px;
+	overflow:hidden;
+	margin:0;
+	padding:0;
+	z-index:100;
+	font-size:12px;
+	background-color: white;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.custom_locationcontrol span {
+	display:block;
+	float:left;
+	text-align:center;
+	line-height:30px;
+	cursor:pointer;
+	font-size: 30px;
+	color: #F60B0B;
+}
+
+.custom_rangecontrol {
+	position:absolute;
+	top:75px;
+	left: 10px;
+	width:50px;
+	height:100px;
+	overflow:hidden;
+	z-index:100;
+	background-color:#f5f5f5;
+	border-radius: 5px;
+}
+
+.custom_rangecontrol span {
+	height: 50%;
+	display:block;
+	text-align:center;
+	cursor:pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.custom_rangecontrol span:first-child {
+	border-bottom:1px solid #bfbfbf;
+}

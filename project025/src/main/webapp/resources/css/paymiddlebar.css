@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'SeoulNamsanM';
+}
+
+.containermiddle {
+	position: relative;
+	display: block;
+	margin-left: 17%;
+	margin-top: 2rem;
+	
+}
+
+.containermiddle .middele_box {
+	position: relative;
+
+}
+
+.containermiddle .middele_box .text1 {
+	position: absolute;
+	z-index: 3;
+	font-size: 30px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 1);
+	width: 168px;
+	height: 48px;
+	margin-left: 5%;
+	margin-top: 5%;
+}
+
+.containermiddle .middele_box .text2 {
+	position: absolute;
+	z-index: 3;
+	margin-left: 5%;
+	margin-top: 8%;
+}
+
+.containermiddle .middele_box .text2 a{
+	text-decoration: none;
+}
+
+.containermiddle .middele_box .front {
+	position: absolute;
+	z-index: 2;
+	/* margin-left: 1%; */
+	height: 300px;
+}
+
+.containermiddle .middele_box .front .pay01 {
+	height: 200px;
+	width: 1500px;
+}
+
+.containermiddle .middele_box .back {
+	position: absolute;
+	z-index: 1;
+	/* margin-left: 15%; */
+}
+
+.containermiddle .middele_box .back .pay02 {
+	height: 200px;
+	width: 1300px;
+}

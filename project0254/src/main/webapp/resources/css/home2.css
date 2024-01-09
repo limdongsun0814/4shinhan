@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+.updateStatus {
+    width: 120px;
+    height: 100px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.fa-solid.fa-store {
+	font-size: 50px;
+    margin-top: 10px;
+    margin-left: 34px;
+    color: grey;
+}
+.fa-solid.fa-store-slash {
+	font-size: 50px;
+    margin-top: 10px;
+    margin-left: 30px;
+    color: grey;
+}
+.fa-solid.fa-clipboard-list {
+	font-size: 55px;
+    margin-top: 8px;
+    margin-left: 40px;
+    color: grey;
+}
+
+.now_order {
+    margin-left: 32px;
+    margin-top: 8px;
+    color: gray;
+}
+
+.open_close_store {
+    margin-left: 35px;
+    margin-top: 11px;
+    color: gray;
+}
+
+.all {
+	display: flex;
+	width:100%;
+}
+
+
+#nav ul.menu li a:hover,
+#nav ul.menu li a:active {
+    color: #FFBBBB;
+}
+
+.sidebar {
+	width: 320px;
+	display: flex;
+	flex-direction: column;
+}
+
+
+.owner {
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.container {
+	display: flex;
+}
+
+.owner, .edit {
+	margin: 10px; /* 예시로 추가한 스타일 */
+	padding: 10px;
+}
+
+.container, .whitebox {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+#nav ul {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#nav ul.menu li {
+	position: relative;
+	float: left;
+	width: 100%;
+	list-style-type: none;
+	font-size: 25px;
+}
+
+#nav ul.menu li {
+	display: block;
+	width: 100%;
+	line-height: 70px;
+	text-indent: 34px;
+	color: white;
+	text-decoration: none;
+}
+
+
+
+#nav ul.menu li .sub a {
+	position: relative;
+	float: left;
+	display: block;
+	width: 100%;
+	z-index: 999;
+	text-indent: 64px;
+	text-decoration: none;
+	color: white;
+}
+
+#nav ul.menu li .sub a:hover {
+	color: #FFBBBB;
+}
+#nav ul.menu li:hover {
+	color: #FFBBBB;
+}

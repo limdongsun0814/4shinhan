@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.firstzone.store">
+	<update id="storeClose" parameterType="storevo">
+		UPDATE STORE SET store_is_open = false WHERE store_id = #{store_id}
+	</update>
+	<update id="storeOpen" parameterType="storevo">
+		UPDATE STORE SET store_is_open = true WHERE store_id = #{store_id}
+	</update>
+	<select id="selectStoreByOwnerId" resultType="storevo" parameterType="String">
+		select * 
+		from STORE
+		where store_owner_id = #{aa}
+	</select>
+	
+	<select id="selectStoreByStoreId" resultType="storevo" parameterType="int">
+		select * 
+		from STORE
+		where store_id = #{aa}
+	</select>
+	
+	<select id="storeNameCheck" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM STORE WHERE store_name=#{aaaa}
+	</select>
+	<insert id="insertStore" parameterType="storevo">
+		INSERT INTO STORE (store_owner_id, store_is_pickup, store_is_delivery, store_is_subscribe, store_name, store_address, store_address_detail, store_address_latitude, store_address_longitude, store_phone, store_min_delivery_price, store_avg_delivery_predict_time, store_operation_hour,  store_closed_date, store_introduce, store_made_in,  store_pay_tier, store_delivery_fee,  store_img_thumbnail_path,store_img_path) 
+		VALUES ( #{store_owner_id}, #{store_is_pickup}, #{store_is_delivery}, #{store_is_subscribe}, #{store_name}, #{store_address}, #{store_address_detail}, #{store_address_latitude}, #{store_address_longitude}, #{store_phone}, #{store_min_delivery_price}, #{store_avg_delivery_predict_time}, #{store_operation_hour},  #{store_closed_date}, #{store_introduce}, #{store_made_in}, #{store_pay_tier}, #{store_delivery_fee}, #{store_img_thumbnail_path},#{store_img_path});
+	</insert>
+	<update id="updateStorePathById" parameterType="map">
+		update STORE
+		set
+		store_ip_path = #{store_ip_path}
+		where
+		store_id = #{store_id}
+	</update>
+	<insert id="insertStoreImgPath" parameterType="com.shinhan.dto.StoreImgPathVO">
+		INSERT INTO STORE_IMG_PATH(store_img_path_store_id,STORE_IMG_PATH,store_img_path_category) 
+		VALUES(#{store_img_path_store_id},#{store_img_path},#{store_img_path_category})
+	</insert>
+	<update id="UpdateStore" parameterType="storevo">
+		UPDATE STORE SET store_is_pickup=#{store_is_pickup},
+		store_is_delivery=#{store_is_delivery},
+		store_is_subscribe=#{store_is_subscribe},
+		store_address=#{store_address},
+		store_address_detail=#{store_address_detail},
+		store_address_latitude=#{store_address_latitude},
+		store_address_longitude=#{store_address_longitude},
+		store_phone=#{store_phone},
+		store_min_delivery_price=#{store_min_delivery_price},
+		store_avg_delivery_predict_time=#{store_avg_delivery_predict_time},
+		store_operation_hour=#{store_operation_hour},
+		store_closed_date=#{store_closed_date}, 
+		store_introduce=#{store_introduce}, 
+		store_made_in=#{store_made_in},  
+		store_pay_tier=#{store_pay_tier}, 
+		store_delivery_fee=#{store_delivery_fee},  
+		store_img_thumbnail_path=#{store_img_thumbnail_path},
+		store_img_path=#{store_img_path} WHERE store_id= #{store_id}  
+	</update>
+</mapper>

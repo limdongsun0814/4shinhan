@@ -1,0 +1,287 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SeoulNamsanM';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	font-family: 'SeoulNamsanM';
+}
+
+.miniPayment {
+	position: fixed;
+	margin-right: 2%;
+	right: 0px;
+	top: 30%;
+	align-items: flex-start;
+	z-index: 200;
+	display: inline-block;
+	padding: 20px;
+	border: 2px solid #87CEEB; /* 하늘색 테두리 */
+	border-radius: 10px;
+	background-color: #ffffff; /* 배경색상 */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+	/* transition: background-color 0.3s ease, transform 0.3s ease; */
+	/* 호버 시 스타일 변경  &: hover { background-color : #e0e0e0;
+	호버 시 배경색상 변경
+	transform: scale(1.05); 호버 시 약간 확대 */
+	width: 250px;
+	zoom: 0.75;
+	/* position: absolute; */
+ 	/* cursor: grab;
+     transition: transform 0.1s ease;  */
+}
+
+}
+.miniPaymentContent {
+	display: flex;
+	flex-direction: column;
+}
+
+.mini-title img{
+	margin-left: 1rem;
+}
+.miniPaymentTotal {
+	display: flex;
+	flex-direction: row;
+	/* justify-content: space-between; */
+	width: 550px;
+	margin-bottom: 2rem;
+	font-size: larger;
+}
+
+.miniPaymentTotal .no-border {
+	margin-left: 5.5rem;
+	border: none;
+	margin-right: -26px;
+	font-size: 23px;
+}
+
+.miniPaymentTotalPrice {
+	/* display: flex; */
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100px;
+}
+
+.cnt {
+	display: none;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+.disprice {
+	display: none;
+	/* justify-content: space-between; */
+	flex-direction: column;
+	/* width: 1440px; */
+}
+
+.disprice_set p {
+	display: flex;
+	/* margin-left: 900%; */
+	margin-left: 10.5rem;
+    margin-top: -1.4rem;
+}
+
+.cnt_set {
+	display: flex;
+	flex-direction: row;
+	/* justify-content: space-between; */
+}
+
+.cnt_set p {
+	margin-top: -1rem;
+    margin-left: 9rem;
+}
+
+.disprice_set {
+	display: flex;
+	flex-direction: row;
+	/* justify-content: space-between; */
+	
+}
+
+.miniPaymentContentTitle {
+	color: #000;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: -0.48px;
+	margin-bottom: 1rem;
+	margin-top: 0.5rem;
+
+}
+
+.miniPayment  hr {
+	margin-bottom: 5%;
+	color: #87CEEB;
+}
+
+.no-border {
+	order: none;
+    font-size: 25px;
+    width: 50px;
+    margin-right: 1rem;
+    text-align: left;
+    display: flex;
+    
+}
+
+.key_menu {
+	display: flex;
+	flex-direction: row; /* 수정된 부분: flex-direction을 row로 설정하여 가로로 출력 */
+	border: none;
+	font-size: 20px;
+	width: 1400px;
+	text-align: left;
+	margin-bottom: 10%;
+}
+
+.key-repeat {
+	display: flex;
+	flex-direction: row; /* 수정된 부분: flex-direction을 row로 설정하여 가로로 출력 */
+	border: none;
+	font-size: 20px;
+	/* width: 1400px; */
+	text-align: left;
+	margin-bottom: 10%;
+}
+
+.result-count {
+	border: none;
+    font-size: 25px;
+    width: 20px;
+    /* display: flex; */
+    margin-left: 5rem;
+}
+
+.result-app {
+   border: none;
+    font-size: 25px;
+    width: 50px;
+    display: flex;
+    margin-left: 6.8rem;
+}
+
+.cal {
+	display: flex;
+	width: 250px;
+	height: 85px;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	border-radius: 10px;
+	background: var(--3, #B1D6E4);
+	color: #000;
+	text-align: center;
+	font-family: SeoulNamsan;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: -0.64px;
+	margin-top: 6%;
+	/* margin-left: 5%; */
+	border: aquamarine;
+	cursor: pointer;
+}
+
+p.resultcal {
+	display: flex;
+	color: var(--BLUE, #000);
+	font-family: SeoulNamsan;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: -0.64px;
+	margin-top: 17%;
+}
+
+.miniPaymentTotalPrice .mini-title {
+	width: 100px;
+	font-size: larger;
+}
+
+.no-border-result {
+	color: var(--BLUE, #70B4E4);
+    /* font-family: Fugaz One; */
+    font-size: 37px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: -0.8px;
+    border: none;
+    margin-left: -140px;
+    text-align: right;
+    margin-top: -40%;
+    /* width: 120px; */
+    /* margin-right: -4%; */
+    margin-top: 10px;
+    background: unset;
+}
+
+.no-border2 {
+	margin-left: 30%;
+	flex-basis: 80px;
+}
+
+.no-border3 {
+	margin-left: 23px;
+	border: none;
+	font-size: 23px;
+	width: 50px;
+	margin-right: 1rem;
+	text-align: right;
+	display: flex;
+	flex-basis: 117px;
+}
+
+.no-border4 {
+	margin-left: 67px;
+    border: none;
+    font-size: 23px;
+    width: 70px;
+    text-align: right;
+    display: flex;
+    color: red;
+}
+
+.no-border5 {
+	margin-left: 25%;
+	border: none;
+	font-size: 25px;
+	width: 70px;
+	text-align: left;
+	display: flex;
+	flex-basis: 80px;
+}
+
+.miniPaymentTotalPrice p {
+	border: none;
+    font-size: 25px;
+    width: 70px;
+    text-align: left;
+    display: flex;
+    margin-left: 230px;
+    margin-top: -33px;
+}
+
+.key-repeat .result-app {
+	border: none;
+	font-size: 25px;
+	width: 20px;
+	/* margin-right: 10%; */
+}
+
+.price-result{
+	width: 5rem;
+	height: 2rem;
+}

@@ -1,0 +1,30 @@
+body {
+	margin: 0;
+}
+
+.header {
+	background-color: #FFFCF0;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 3%;
+	display: flex; 
+}
+
+.logo img {
+    width: 100%;
+}
+
+.logo, .auth {
+    display: flex;
+    align-items: center;
+}
+
+.auth a {
+    margin-right: 50px;
+    text-decoration: none;
+    color: gray;
+}

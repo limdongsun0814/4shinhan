@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- <environments default="development"> <environment id="development"> 
+		<transactionManager type="JDBC" /> <dataSource type="POOLED"> <property name="driver" 
+		value="${driver}" /> <property name="url" value="${url}" /> <property name="username" 
+		value="${username}" /> <property name="password" value="${password}" /> </dataSource> 
+		</environment> </environments> -->
+	<!-- <mappers> <mapper resource="org/mybatis/example/BlogMapper.xml" /> 
+		</mappers> -->
+
+	<settings>
+		<!--  -->
+		<setting name="logImpl" value="LOG4J" />
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	<typeAliases>
+		<!-- 타입을 사용 시 간단히 쓰려고 별명 설정 -->
+		<typeAlias type="com.shinhan.dto.testVO" alias="testvo" />
+		<!-- 025에서 사용 -->
+		<typeAlias type="com.shinhan.dto.MemberVO" alias="membervo" />
+		<typeAlias type="com.shinhan.dto.StoreVO" alias="storevo" />
+		<typeAlias type="com.shinhan.dto.StoreViewDTO" alias="storeviewdto" />
+		<typeAlias type="com.shinhan.dto.MemberAddressVO" alias="memberaddressvo" />
+		<typeAlias type="com.shinhan.dto.CartStoreDTO" alias="cartstoredto" />
+		<typeAlias type="com.shinhan.dto.CartProductVO" alias="cartproductvo" />
+		<typeAlias type="com.shinhan.dto.MenuVO" alias="menuvo" />
+		<!-- <typeAlias type="com.shinhan.dto.memberVO" alias="membervottt" /> -->
+		<typeAlias type="com.shinhan.dto.LoginDTO" alias="logindto" />
+		<typeAlias type="com.shinhan.dto.kakaoLoginDTO" alias="kakaologindto" />
+		<typeAlias type="com.shinhan.dto.memberSingUpDTO" alias="signupdto" />
+		<typeAlias type="com.shinhan.dto.SearchIdDTO" alias="searchid" />
+		<typeAlias type="com.shinhan.dto.SearchPasswordDTO" alias="searchpassword" />
+		<typeAlias type="com.shinhan.dto.MyReviewVO" alias="reviewvo" />
+		<typeAlias type="com.shinhan.dto.BestMenuDTO" alias="bestmenu" />
+		<typeAlias type="com.shinhan.dto.PaymentDTO" alias="paymentdto" />
+		<typeAlias type="com.shinhan.dto.CartUpdateDTO" alias="cartupdatedto" />
+		<typeAlias type="com.shinhan.dto.MemberAddressDTO" alias="membseraddressdto" />
+		<typeAlias type="com.shinhan.dto.PaymentTypeVO" alias="paymentTypevo" />
+		<typeAlias type="com.shinhan.dto.getStoreId" alias="getstoreid" />
+		<typeAlias type="com.shinhan.dto.deleteCartDTO" alias="deletecartdto" />
+		<typeAlias type="com.shinhan.dto.paymentProductInsertDTO" alias="paymentInsert" />
+		<typeAlias type="com.shinhan.dto.PaymentGetVO" alias="paymentgetvo" />
+		<typeAlias type="com.shinhan.dto.StoreListDTO" alias="storelistdto" />
+		<typeAlias type="com.shinhan.dto.MenuCategoryVO" alias="menucatevo" />
+	</typeAliases>
+	
+</configuration>

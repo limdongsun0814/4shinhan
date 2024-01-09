@@ -1,0 +1,375 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'SeoulNamsanM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	font-family: 'SeoulNamsanM';
+}
+
+
+body {
+	margin: 0;
+}
+
+.my_container {
+    background-color: orange;
+    height: auto;
+    width: auto;
+    display: flex;
+    display: flex;
+    flex-direction: column;
+}
+
+.tier_box_area {
+	height: 210px;
+	display: flex;
+	justify-content: center;
+}
+
+.tier_box {
+    background-color: yellowgreen;
+    height: 210px;
+    width: 1400px;
+    display: flex;
+    flex-direction: row;
+}
+
+.tier_box_left {
+	/*background-color: pink;*/
+	width: 280px;
+	height: 210px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.tier_box_left > .mypage_txt {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mypage_txt {
+	background-color: yellow;
+	text-align: center;
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.tier_box_right {
+	background-color: lightgray;
+	width: 1120px;
+	height: 210px%;
+}
+
+.info_member {
+	height: 35%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.info_member > .txt {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.txt {
+	background-color: yellow;
+	text-align: center;
+	font-size: 25px;
+}
+
+.benefits_area {
+	background-color: white;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom: 1%;
+	height: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.benefits {
+	width: 90%;
+	height: 80%;
+	background-color: yellowgreen;
+	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.benefits:before {
+	display: inline-block;
+	width: 3%;
+	content: '';
+}
+
+.benefits:after {
+	display: inline-block;
+	width: 3%;
+	content: '';
+}
+
+.benefits > .benefit {
+	display: inline-block;
+}
+
+.benefit {
+	background-color: white;
+	height: 80%;
+}
+
+.bottom_area {
+	background-color: lightyellow;
+	width: auto;
+	height: auto;
+	display: flex;
+	justify-content: center;
+}
+
+.bottom_content {
+	background-color: white;
+	width: 1400px;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+}
+
+.left_sidebar_area {
+	background-color: gray;
+	height: auto;
+	width: 200px;
+}
+
+.left_sidebar {
+	width: 200px;
+	height: auto;
+	background-color: hotpink;
+	z-index: 10;
+	
+}
+
+.my_menu {
+    margin-top: 3%;
+}
+
+.left_sidebar > .my_menu li {
+    color: #333;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 20px 0px 8px 14px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.my_menu > h2 {
+    padding-bottom: 4px;
+    border-bottom: 3px solid #797979;
+    margin-top: 30px;
+    font-size: 21px;
+    font-weight: 600;
+    color: #333;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'NotoKrB';
+    line-height: 35px;
+}
+
+.my_menu .fas {
+    color: #ff5858;
+    font-size: 20px;
+    line-height: 20px;
+    float: right;
+    margin-right: 20px;
+}
+
+.my_menu > .big_menu > .small_menu li {
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 0px solid #e1e1e1;
+    margin-left: 14px;
+    padding-top: 8px;
+}
+
+.big_menu {
+    cursor: pointer;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+a {
+    color: #797979;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+ul {
+    list-style: none;
+}
+
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.my_content_area {
+	background-color: red;
+	width: 1200px;
+	height: auto;
+}
+
+
+
+/*myheartstores 의 css*/
+
+span {
+	color: red;
+}
+di
+
+.head {
+	display: inline-block;
+    background-color: yellowgreen; /* 배경 색상 설정 */
+    margin-left: 29%;
+    padding: 20px; /* 텍스트 주변에 여백을 주기 위한 패딩 설정 */
+}
+
+.heartList {
+	border: solid 3px black;
+	margin-right: 150px;
+}
+
+.heartList div {
+	border: solid 1px blue;
+}
+
+.storeImage {
+	width: 200px;
+	height: 200px;
+}
+
+.heartList .storeImage,
+.heartList .heart_store_info {
+    display: inline-block;
+    vertical-align: top; /* 가로 정렬을 위한 설정 */
+    margin-right: 10px; /* 각 요소 사이의 간격 조절 */
+}
+
+.first_line .storeName,
+.first_line .checkHeart {
+    display: inline-block;
+    vertical-align: top; /* 가로 정렬을 위한 설정 */
+    margin-right: 10px; /* 각 요소 사이의 간격 조절 */
+}
+
+.third_line .storePhone,
+.third_line .storeTime {
+    display: inline-block;
+    vertical-align: top; /* 가로 정렬을 위한 설정 */
+    margin-right: 10px; /* 각 요소 사이의 간격 조절 */
+}
+.first_line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 130px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.storeName {
+    margin: 0;
+}
+
+.checkHeart {
+    margin: 0;
+}
+.third_line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+}
+
+.storePhone {
+    margin: 0;
+}
+.storeAddress {
+    height: 35px;
+}
+
+.storeTime {
+    margin: 0;
+}
+
+.heart_store_info {
+	width: 650px;
+}
+
+
+/*알림함 모달*/
+/*버튼을 감싸는 영역
+#btnWrap {
+  width: 500px;
+  margin: 100px auto;
+}
+*/
+
+/*모달팝업을 감싸고 있는 최상위 부모*/
+#chk_modalWrap {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(166, 166, 166, 0.8); /* Black w/ opacity */
+}
+
+/*모달 팝업창*/
+#chk_modalBody {
+  width: 400px;
+  height: 600px;
+  margin: 0 auto;
+  border: 1px solid #777;
+  background-color: rgba(248, 201, 223);
+	overflow-y: scroll;
+	-ms-overflow-style: none;
+}
+#chk_modalBody p {
+	width: 300px;
+	margin-left: 30px;
+	display: flex;
+    justify-content: space-evenly;
+}
+
+.chk_content {
+	background-color: #fff;
+	font-size: 20px;
+}
+#chk_modalBody::-webkit-scrollbar{
+  display:none;
+}
+
+/*닫기 버튼*/
+#chk_closeBtn {
+  float:right;
+  font-weight: bold;
+  color: #777;
+  font-size:25px;
+  cursor: pointer;
+  margin-top: 11px;
+  margin-right: 20px;
+}

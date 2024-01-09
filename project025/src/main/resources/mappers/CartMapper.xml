@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shinhan.cart">
+	<select id="getCartStoreList" resultType="cartstoredto" parameterType="hashMap">
+		SELECT s.store_id,s.store_ip_path,s.store_name, me.menu_image_path, me.menu_name, me.menu_price,me.menu_discount_price,s.store_delivery_fee, s.store_is_pickup,s.store_is_delivery, c.cart_product_count, me.menu_count,
+		( 6371 * ACOS( COS( RADIANS(#{lat}) ) * COS( RADIANS( s.store_address_latitude ) ) * COS( RADIANS( s.store_address_longitude ) - RADIANS(#{lng}) ) + SIN( RADIANS(#{lat}) ) * SIN( RADIANS( s.store_address_latitude ) ) ) ) AS distance
+		FROM CART_PRODUCT c JOIN MEMBER m ON c.cart_product_member_id = m.member_id 
+		JOIN MENU me on c.cart_product_menu_id = me.menu_id
+		JOIN STORE s ON me.menu_store_id = s.store_id 
+		WHERE c.cart_product_member_id=#{id}
+		 <![CDATA[having distance < 2]]>
+	</select>
+	<update id="updateCart" parameterType="cartupdatedto">
+		UPDATE CART_PRODUCT SET cart_product_count = #{cnt} WHERE cart_product_member_id = #{member_id} AND cart_product_menu_id in
+ (SELECT m.menu_id FROM STORE s JOIN MENU m ON(s.store_id=m.menu_store_id) WHERE s.store_name=#{store_name} AND m.menu_name=#{menu_name});
+	</update>
+	<delete id="deleteCart" parameterType="deletecartdto">
+		DELETE FROM CART_PRODUCT  WHERE CART_PRODUCT.cart_product_member_id=#{member_id} AND CART_PRODUCT.cart_product_menu_id IN (SELECT m.menu_id FROM MENU m JOIN STORE s ON(m.menu_store_id=s.store_id) WHERE s.store_name=#{store_name} AND m.menu_name=#{menu_name});
+	</delete>
+	<delete id="deleteCartStore" parameterType="deletecartdto">
+		DELETE FROM CART_PRODUCT  WHERE CART_PRODUCT.cart_product_member_id=#{member_id} AND CART_PRODUCT.cart_product_menu_id IN (SELECT m.menu_id FROM MENU m JOIN STORE s ON(m.menu_store_id=s.store_id) WHERE s.store_name=#{store_name});
+	</delete>
+	<select id="cartCheck" parameterType="cartproductvo" resultType="int">
+		SELECT COUNT(*) FROM CART_PRODUCT c WHERE c.cart_product_member_id=#{cart_product_member_id} AND c.cart_product_menu_id=#{cart_product_menu_id}
+	</select>
+	<insert id="insertCart" parameterType="cartproductvo">
+		INSERT INTO CART_PRODUCT (cart_product_member_id,cart_product_menu_id,cart_product_count) VALUES(#{cart_product_member_id},#{cart_product_menu_id},#{cart_product_count})
+	</insert>
+	<update id="updateCartProduct" parameterType="cartproductvo">
+		UPDATE CART_PRODUCT SET cart_product_count = #{cart_product_count}  WHERE cart_product_member_id=#{cart_product_member_id} AND cart_product_menu_id=#{cart_product_menu_id}
+	</update>
+</mapper>

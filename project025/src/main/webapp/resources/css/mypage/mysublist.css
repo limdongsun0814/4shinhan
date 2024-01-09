@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+
+.active_subscribe div {
+	font-size: 20px;
+}
+
+.active_subscribe {
+	width:690px;
+	display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.title {
+	height: 50px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D8F49C;
+    border-top-left-radius: 10px;
+  	border-top-right-radius: 10px;
+}
+
+.title_bottom {
+	display: flex;
+	justify-content: space-between;
+}
+
+.store_image {
+	width: 200px;
+	margin-top: 5px;
+    margin-left: 50px;
+    height: 200px;
+}
+
+.sub_title {
+	text-align: left;
+	margin-top: 30px;
+}
+
+.subscribe_info {
+	margin-top: 80px;
+	text-align: right;
+    display: flex;
+    flex-direction: column;
+    line-height: 0;
+    align-items: flex-end; /* 아이템을 컨테이너의 오른쪽에 정렬합니다. */
+}

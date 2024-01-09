@@ -1,0 +1,37 @@
+@charset "UTF-8";
+@font-face {
+	font-family: 'SeoulNamsanM';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	font-family: 'SeoulNamsanM';
+}
+
+
+
+.miniSidebar{
+	position: fixed;
+	margin-right: 2%;
+	right: 0px;
+	top: 30%;
+	align-items: flex-start;
+	width: 353px;
+	z-index: 5;
+	display: inline-block;
+	padding: 20px;
+	border: 2px solid #87CEEB; /* 하늘색 테두리 */
+	border-radius: 10px;
+	background-color: #ffffff; /* 배경색상 */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+	transition: background-color 0.3s ease, transform 0.3s ease;
+	/* 호버 시 스타일 변경  &: hover { background-color : #e0e0e0;
+	호버 시 배경색상 변경
+	transform: scale(1.05); 호버 시 약간 확대 */
+	width: 300px;
+	
+}

@@ -1,0 +1,333 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'SeoulNamsanM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	font-family: 'SeoulNamsanM';
+}
+
+body {
+	margin: 0;
+}
+
+.body_container {
+	/*background-color: orange;*/
+	margin-top: 30px;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top_area {
+	/*background-color: lightgreen;*/
+	width: 1000px;
+	height: 650px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.menu_title_area {
+	width: 100%;
+	height: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #FFF0B3;
+	border-radius: 10px 10px 0px 0px;
+}
+
+.menu_name {
+	font-size: 23px;
+	font-weight: 600;
+}
+
+.menu_info_area {
+	/*background-color: lightpink;*/
+	height: 90%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.menu_info_left {
+	/*background-color: skyblue;*/
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu_img_area {
+	/*background-color: lightgray;*/
+	height: 90%;
+	width: 100%;
+}
+
+.menu_item_img {
+	padding: 5px;
+	width: 490px;
+	height: 516.5px;
+}
+
+.menu_description {
+	width: 95%;
+	height: 10%;
+	padding: 10px;
+	font-size: 18px;
+	line-height: 30px;
+}
+
+.menu_info_right {
+	padding: 3%;
+	width: 44%;
+	/*background-color: brown;	*/
+}
+
+.menu_info_detail {
+	height: 67%;
+	margin: 20px 0 20px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.menu_info_detail > div {
+	display: flex;
+	font-size: 20px;
+}
+
+.price_info {
+	width: 40%;
+	display: flex;
+}
+
+.discount_info {
+	line-height: 30px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.discount_percent {
+	color: #E87D7D;
+	font-size: 27px;
+	font-weight: bold;
+}
+
+.first_cost {
+	text-decoration: line-through;
+	color: gray;
+}
+
+.realtime_price_info {
+	display: flex;
+    font-size: 27px;
+    font-weight: bold;
+    align-items: flex-end;
+    margin-left: 30px;
+    margin-bottom: 4px;
+}
+
+.stock_info, .ingredients_info {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.product_count {
+	display: flex;
+	
+}
+
+.info_value {
+	width: 60%;
+    text-align: end;
+}
+
+.product_count > button, .product_count > div {
+	width: 35px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pay_info {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.pay_price_info {
+	width: 55%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+.pay_price {
+	font-size: 27px;
+	font-weight: bold;
+}
+
+.menu_button_area {
+	display: flex;
+	justify-content: space-around
+}
+
+.add_to_heart {
+	border: none;
+	outline: none;
+	cursor: pointer;
+	width: 65px;
+	height: 60px;
+	font-size: 27px;
+	border-radius: 5px;
+}
+
+.add_to_cart {
+	border: none;
+	outline: none;
+	background-color: #F8C9DF;
+	cursor: pointer;
+	width: 440px;
+	height: 60px;
+	font-size: 23px;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+.bottom_area {
+	/*background-color: lightblue;*/
+	width: 1200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 50px;
+}
+
+.random_list_area {
+	/*background-color: gray;*/
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	height: 300px;
+	width: 1270px;
+	margin-bottom: 50px;
+}
+
+.menu_review_area {
+	background-color: white;
+	opacity: 70%;
+	width: 90%;
+}
+
+.review_title_area {
+	background-color: lightyellow;
+	width: 100%;
+	height: 50px;
+	margin-bottom: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.no_review {
+	background-color: lightpink;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.random_menu {
+	/*background-color: #FFE6EB;*/
+	height: 300px;
+	width: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position : relative;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.random_menu_img {
+	background-color: lightgray;
+	height: 100%;
+	width: 100%;
+	border-radius: 10px;
+}
+/*
+.best_menu_info {
+	positon : absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}*/
+
+.top_info {
+	position: absolute;
+	top: 5px;
+	display: flex;
+}
+
+.menu_store_name {
+	cursor: pointer;
+	background-color: #F8C9DF;
+	font-size: 18px;
+	position: absolute;
+	left: -115px;
+	top: 5px;
+}
+
+.menu_heart {
+	font-size: 25px;
+	position: absolute;
+	right: -115px;
+	top: 5px;
+	border: none;
+	outline: none;
+	background-color: inherit ;
+	cursor: pointer;
+}
+
+.bottom_info {
+	background-color: yellow;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	font-size: 18px;
+}
+
+.bottom_info_left {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	color: #578EB5;
+	font-weight: bold;
+}
+
+.random_cart {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	padding: 10px 20px 10px 20px;
+	border: none;
+	outline: none;
+	background-color: white ;
+	cursor: pointer;
+	border-radius: 5px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+	font-size: 15px;
+}

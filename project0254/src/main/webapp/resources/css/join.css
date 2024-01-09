@@ -1,0 +1,148 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'SeoulNamsanM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	font-family: 'SeoulNamsanM';
+}
+
+.Maincontainer{
+	
+	/*background-color: rgba(255, 244.27309960126877, 200.80134987831116, 1);*/
+	background-color: #faedcd;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container_join {
+	padding: 80px 0 80px 0;
+	margin: 0 auto;
+	width: 780px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background-color: #FFFFFF;
+	box-shadow: 0 0 1px 1px white;
+}
+
+.join_title {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+}
+
+.form-group > input, .form-group > div > input {
+	border: 1px solid #A6A6A6;
+	border-radius: 5px;
+	outline: none;
+	padding: 7px;
+	box-sizing:border-box;
+    transition:.3s;	
+}
+
+.form-group > input:focus, .form-group > div > input:focus {
+	border-color:#FFEEEE;
+    box-shadow:0 0 3px 0 #FFEEEE;
+}
+
+.form-group > label {
+	margin-bottom: 5px;
+}
+
+span {
+	color: red;
+}
+
+.input_btn {
+	display: flex;
+	justify-content: space-between;
+}
+
+.join_btn {
+    border: none;
+	outline: none;
+	background-color: #FFEEEE;
+	width: 400px;
+	font-weight: bold;
+	margin-top: 25px;
+	border-radius: 5px;
+	padding: 10px 0 10px 0;
+	font-size: 20px;
+}
+
+.sign-up-box {
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	background-color: #86acd9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: var(- -padding);
+	right: -35px;
+	cursor: pointer;
+	transition: all 500ms ease-in-out;
+}
+
+.sign-up-box i {
+	font-size: 1.9em;
+	color: #fff;
+}
+
+/*.active*/
+.sign-up-box.active {
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+	padding: 30px;
+	cursor: default;
+	border-radius: 7px;
+}
+
+.sign-up-box.active input, .sign-up-box.active button {
+	padding: 15px;
+	font-size: 1.2em;
+	border: none;
+	margin: 0;
+}
+
+.sign-up-box.active input {
+	margin-bottom: 10px;
+}
+
+.sign-up-box.active>span {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background-color: #fff;
+	border-radius: 50%;
+	top: 5px;
+	right: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #547fb2;
+	font-weight: 700;
+	cursor: pointer;
+}

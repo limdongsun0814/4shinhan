@@ -1,0 +1,191 @@
+@charset "UTF-8";
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+
+.backcalss .container{
+	background-color:  #FFEC9F;
+	padding: 1px;
+}
+
+
+:root { 
+	-padding: 60px;
+}
+
+.box {
+	    position: relative;
+    margin: 50px auto;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 7px;
+    border: solid 1px;
+    background-color: #ffffff;
+}
+
+
+input#id_check {
+    display: flex;
+    margin-left: 79%;
+    margin-top: -11%;
+    padding: revert;
+    width: 96px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+input#birthday {
+      width: 380px;
+}
+span {
+	color: red;
+}
+
+
+.join_btn {
+    margin-left: 18%;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #FFEC9F;
+    margin-top: 10px;
+}
+
+
+.SingUp_Text {
+	font-family: SeoulNamsan;
+	font-size: 25px;
+	font-weight: bold;
+	border-radius: 10px;
+ 	background-color: #FFEC9F; 
+	margin-bottom: 30px;
+	margin-left: 25%;
+	text-align: center;
+	align-content: center;
+	width: 300px;
+	display: block;
+	margin-top: 50px;
+	height: 20%;
+}
+
+.box input, .box button {
+	padding: 15px;
+	font-size: 1.2em;
+	border: none;
+}
+
+.box .input-id {
+	margin-bottom: 25px;
+    width: 380px;
+    border: revert-layer;
+}
+
+
+input[type="button"] {
+    display: flex;
+    margin-left: 79%;
+    margin-top: -11%;
+    padding: revert;
+    width: 96px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+.box button {
+	background-color: #ffe4c4;
+	color: #547fb2;
+	border-radius: 4px;
+}
+
+.form-group {
+	margin-left: 100px;
+    margin-top: 6px
+}
+
+/* .box .form-data-box .form-group {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0; body의 기본 마진 제거
+} */
+.sign-up-box {
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	background-color: #86acd9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: var(- -padding);
+	right: -35px;
+	cursor: pointer;
+	transition: all 500ms ease-in-out;
+}
+
+.sign-up-box i {
+	font-size: 1.9em;
+	color: #fff;
+}
+
+/*.active*/
+.sign-up-box.active {
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+	padding: 30px;
+	cursor: default;
+	border-radius: 7px;
+}
+
+.sign-up-box.active input, .sign-up-box.active button {
+	padding: 15px;
+	font-size: 1.2em;
+	border: none;
+	margin: 0;
+}
+
+.sign-up-box.active input {
+	margin-bottom: 10px;
+}
+
+.sign-up-box.active>span {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background-color: #fff;
+	border-radius: 50%;
+	top: 5px;
+	right: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #547fb2;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.box select {
+	margin-bottom: 25px;
+    width: 380px;
+    border: revert-layer;
+}
+
+div#origin_div .input-origin{
+	margin-bottom: 25px;
+    width: 150px;
+    /* border: revert-layer; */
+    border: solid 1px;
+}

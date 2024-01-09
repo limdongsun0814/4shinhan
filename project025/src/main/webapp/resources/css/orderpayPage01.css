@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SeoulNamsanM';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'SeoulNamsanM';
+}
+
+.cart_all {
+	min-height: 900px;
+    height: auto;
+    margin-top: -80px;
+    margin-left: -125px;
+    margin-bottom: 140px;
+}
+
+/*  미들 바 부분  */
+.containermiddle {
+	position: relative;
+	display: block;
+	margin-left: 17%;
+	margin-top: 2rem;
+	z-index: 1;
+}
+
+.containermiddle .middele_box {
+	position: relative;
+}
+
+.containermiddle .middele_box .text1 {
+	position: absolute;
+	z-index: 3;
+	font-size: 30px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 1);
+	width: 168px;
+	height: 48px;
+	margin-left: 5%;
+	margin-top: 5%;
+}
+
+.containermiddle .middele_box .text2 {
+	position: absolute;
+	z-index: 3;
+	margin-left: 5%;
+	margin-top: 8%;
+}
+
+.containermiddle .middele_box .text2 a {
+	text-decoration: none;
+}
+
+.containermiddle .middele_box .front {
+	position: absolute;
+	z-index: 2;
+	/* margin-left: 1%; */
+	height: 200px;
+}
+
+.containermiddle .middele_box .front .pay01 {
+	height: 200px;
+	width: 1500px;
+}
+
+.containermiddle .middele_box .back {
+	margin-top: 100px;
+}
+
+.containermiddle .middele_box .back .pay02 {
+	height: 200px;
+	width: 1352px;
+	margin-top: 3px;
+}
+
+
+

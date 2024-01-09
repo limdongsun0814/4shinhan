@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- <environments default="development"> <environment id="development"> 
+		<transactionManager type="JDBC" /> <dataSource type="POOLED"> <property name="driver" 
+		value="${driver}" /> <property name="url" value="${url}" /> <property name="username" 
+		value="${username}" /> <property name="password" value="${password}" /> </dataSource> 
+		</environment> </environments> -->
+	<!-- <mappers> <mapper resource="org/mybatis/example/BlogMapper.xml" /> 
+		</mappers> -->
+
+	<settings>
+		<!--  -->
+		<setting name="logImpl" value="LOG4J" />
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	<typeAliases>
+		<!-- 타입을 사용 시 간단히 쓰려고 별명 설정 -->
+		<typeAlias type="com.shinhan.dto.testVO" alias="testvo" />
+		<typeAlias type="com.shinhan.dto.OwnerVO" alias="ownervo" />
+		<typeAlias type="com.shinhan.dto.StoreVO" alias="storevo" />
+		<typeAlias type="com.shinhan.dto.MenuVO" alias="menuvo" />
+		<typeAlias type="com.shinhan.dto.MenuCategoryVO" alias="menucategoryvo" />
+		<typeAlias type="com.shinhan.dto.LoginDTO" alias="logindto" />
+		<typeAlias type="com.shinhan.dto.SignUpDTO" alias="signupdto" />
+		<typeAlias type="com.shinhan.dto.SearchIdDTO" alias="searchid" />
+		<typeAlias type="com.shinhan.dto.SearchPasswordDTO" alias="searchpassword" />
+		
+		<typeAlias type="com.shinhan.dto.PaymentVO" alias="paymentvo" />
+		<typeAlias type="com.shinhan.dto.PaymentDTO" alias="paymentdto" />
+		<typeAlias type="com.shinhan.dto.PayStatusDTO" alias="paystatusdto" />
+		<typeAlias type="com.shinhan.dto.PaymentProductVO" alias="paymentproductvo" />
+		<typeAlias type="com.shinhan.dto.PaymentGetVO" alias="paymentgetvo" />
+		<typeAlias type="com.shinhan.dto.PushAlarmVO" alias="pushalarmvo" />
+		<typeAlias type="com.shinhan.dto.PushAlarmDTO" alias="pushalarmDTO" />
+		<typeAlias type="com.shinhan.dto.PushAlarmCategoryVO" alias="pushalarmcategoryvo" />
+		<typeAlias type="com.shinhan.dto.MemberIpDTO" alias="memberipdto" />
+		<typeAlias type="com.shinhan.dto.MyReviewVO" alias="myreviewvo" />
+		<typeAlias type="com.shinhan.dto.MyReviewDTO" alias="myreviewdto" />
+		<typeAlias type="com.shinhan.dto.OwnerReviewDTO" alias="ownerreviewdto" />
+		<typeAlias type="com.shinhan.dto.StoreNoticeDTO" alias="storenoticedto" />
+		<typeAlias type="com.shinhan.dto.StoreNoticeVO" alias="storenoticevo" />
+		<typeAlias type="com.shinhan.dto.kakaoLoginOwnerDTO" alias="kakaoLoginOwnerDTO" />
+	</typeAliases>
+	
+
+
+</configuration>

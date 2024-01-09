@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.firstzone.storeNotice">
+
+
+	<insert id="StoreNoticeInsert" parameterType="storenoticedto">
+		INSERT INTO
+		STORE_NOTICE
+		(store_notice_store_id,store_notice_title,store_notice_content,store_notice_img_path,store_notice_date,store_notice_view_count)
+		values(#{store_notice_store_id},#{store_notice_title},#{store_notice_content},#{store_notice_img_path},#{store_notice_date},#{store_notice_view_count})
+	</insert>
+
+
+
+	<select id="StoreNoticeList" parameterType="int"
+		resultType="storenoticevo">
+		SELECT *
+		FROM STORE_NOTICE
+		WHERE
+		store_notice_store_id=#{aa}
+		ORDER BY store_notice_date DESC
+	</select>
+
+
+	<select id="StoreNoticeSelect" parameterType="int"
+		resultType="storenoticevo">
+		SELECT *
+		FROM STORE_NOTICE
+		WHERE
+		store_notice_seq=#{aa}
+	</select>
+
+	<update id="StoreNoticeUpdate" parameterType="storenoticevo">
+		UPDATE STORE_NOTICE
+		SET
+		store_notice_store_id = #{store_notice_store_id},
+		store_notice_title = #{store_notice_title},
+		store_notice_content =
+		#{store_notice_content},
+		store_notice_img_path =
+		#{store_notice_img_path},
+		store_notice_date = #{store_notice_date},
+		store_notice_view_count = #{store_notice_view_count}
+		WHERE
+		store_notice_seq = #{store_notice_seq}
+	</update>
+
+	<delete id="StoreNoticeDelete" parameterType="int">
+		DELETE FROM STORE_NOTICE
+		WHERE store_notice_seq = #{aa}
+	</delete>
+
+
+
+
+</mapper>

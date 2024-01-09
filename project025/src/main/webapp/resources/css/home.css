@@ -1,0 +1,356 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'SeoulNamsanM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	font-family: 'SeoulNamsanM';
+}
+
+
+.slide {
+  /* layout */
+  display: flex;
+  flex-wrap: nowrap;
+  /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
+  overflow: hidden;
+
+  /* position */
+  /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
+  position: relative;
+
+  /* size */
+  width: 100%;
+
+  /* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
+  user-select: none;
+}
+.slide_item {
+  /* layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
+  position: relative;
+  left: 0px;
+
+  /* size */
+  width: 100%;
+  /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
+  flex-shrink: 0;
+
+  /* transition */
+  transition: left 0.15s;
+}
+.slide_button {
+  /* layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* position */
+  position: absolute;
+  /* 버튼이 중앙에 위치하게 하기위해 계산 */
+  top: calc(50% - 16px);
+
+  /* size */
+  width: 32px;
+  height: 32px;
+
+  /* style */
+  border-radius: 100%;
+  background-color: #cccc;
+  cursor: pointer;
+}
+
+.slide_prev_button {
+  left: 15px;
+}
+.slide_next_button {
+  right: 15px;
+}
+
+/* 페이지네이션 스타일 */
+ul,
+li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.slide_pagination {
+  /* layout */
+  display: flex;
+  gap: 5px;
+
+  /* position */
+  position: absolute;
+  bottom: 0;
+  /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
+  left: 50%;
+  transform: translateX(-50%);
+}
+.slide_pagination > li {
+  /* 현재 슬라이드가 아닌 것은 투명도 부여 */
+  color: #7fb5ff88;
+  cursor: pointer;
+  font-size: 25px;
+}
+.slide_pagination > li.active {
+  /* 현재 슬라이드 색상은 투명도 없이 */
+  color: #7fb5ff;
+}
+
+.slide_item_duplicate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 0px;
+  width: 100%;
+  height: 300px;
+  flex-shrink: 0;
+  transition: left 0.15s;
+}
+
+/* home.jsp Body */
+body > .container {
+	/*background-color: lightyellow;*/
+	margin-top: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.store_area {
+	/*background-color: lightgreen;*/
+	height: 700px;
+	width: 1240px;
+	display: flex;
+	flex-direction: row;
+}
+
+/* 가게 리스트 사이드바 */
+.store_sidebar {
+	/*background-color: white;*/
+	width: 10%;
+}
+
+/* 가게 리스트 사이드바(주문 타입) */
+.orderType_area {
+	border-radius: 15px 0px 0px 15px;
+	background-color: #B1D6E4;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.orderType {
+	border-radius: 5px;
+	/*padding: 23px;*/
+	height: 9%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	background: transparent;
+}
+
+.orderType > .orderType_title {
+	display: inline-block;
+	vertical-align: middle;
+}
+.orderType_title {
+	font-size: 15px;
+	color: #FFFFFF;
+}
+
+.orderType.on {
+	background: #70B4E4;
+	border-radius: 5px;
+	width: 100px;
+	height: 50px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.orderType.on > .orderType_title {
+	font-size: 17px;
+	font-weight: 550;
+}
+
+/* 가게 리스트 사이드바(정렬) */
+.sortType_area{
+	border-radius: 15px 0px 0px 15px;
+	background-color: #B1D6E4;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sortType {
+	border-radius: 10px;
+	/*padding: 23px;*/
+	height: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	background: transparent;
+}
+.sortType > .sortType_title {
+	display: inline-block;
+	vertical-align: middle;
+}
+.sortType_title {
+	font-size: 15px;
+	color: #FFFFFF;
+}
+
+.sortType.on {
+	background: #70B4E4;
+	border-radius: 5px;
+	width: 100px;
+	height: 50px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.sortType.on > .sortType_title {
+	font-size: 17px;
+	font-weight: 550;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+/* 가게 리스트+지도 */
+.store_right_area {
+	/*border-radius: 0px 15px 15px 0px;*/
+	border: 3px solid #B1D6E4;
+	width: 90%;
+	display: flex;
+	
+}
+.store_list_area {
+/*background-color: #FFB914;*/
+	/*background-color: #B1D6E4;*/
+	width: 45%;
+	display: flex;
+	overflow-y: scroll;
+	-ms-overflow-style: none;
+	justify-content: center;
+}
+
+.store_list_area::-webkit-scrollbar{
+	display:none;
+}
+
+.store_map_area {
+	width: 55%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.best_area {
+	margin-top: 150px;
+	margin-bottom: 100px;
+	width: 1270px;
+	height: 400px;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+.best_title {
+	/*background-color: yellow;*/
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.menu_list_area {
+	/*background-color: gray;*/
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	height: 300px;
+	margin-bottom: 50px;
+}
+
+.best_menu {
+	/*background-color: #FFE6EB;*/
+	height: 300px;
+	width: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position : relative;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.best_menu_img {
+	background-color: lightgray;
+	height: 100%;
+	width: 100%;
+	border-radius: 10px;
+}
+/*
+.best_menu_info {
+	positon : absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}*/
+
+.top_info {
+	position: absolute;
+	top: 5px;
+	display: flex;
+}
+
+.menu_store_name {
+	cursor: pointer;
+	background-color: #F8C9DF;
+	font-size: 18px;
+	position: absolute;
+	left: -115px;
+	top: 5px;
+}
+
+.bottom_info {
+	background-color: yellow;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	font-size: 18px;
+}
+
+.bottom_info_left {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	color: #578EB5;
+	font-weight: bold;
+}
+
+.best_cart {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	padding: 10px 20px 10px 20px;
+	border: none;
+	outline: none;
+	background-color: white ;
+	cursor: pointer;
+	border-radius: 5px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+	font-size: 15px;
+}
+

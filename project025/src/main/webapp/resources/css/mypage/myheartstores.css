@@ -1,0 +1,102 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'SeoulNamsanM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	font-family: 'SeoulNamsanM';
+}
+
+span {
+	color: red;
+}
+
+
+.head {
+	display: inline-block;
+    background-color: #D8F49C;
+    padding: 20px 200px 20px 200px;
+	margin-top: 20px;
+	font-size: 20px;
+	background-color: #D8F49C;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: bold;
+}
+
+.heartList {
+	display: flex;
+    flex-direction: column;
+}
+
+.one_heart_list {
+	border: 1px solid #D8F49C;
+	background-color: #FCFCFC;
+}
+
+.storeImage {
+	width: 180px;
+	height: 180px;
+}
+
+.heartList .storeImage,
+.heartList .heart_store_info {
+    display: inline-block;
+    vertical-align: top; /* 가로 정렬을 위한 설정 */
+}
+
+.first_line .storeName,
+.first_line .checkHeart {
+    display: inline-block;
+    vertical-align: top; /* 가로 정렬을 위한 설정 */
+}
+
+.third_line .storePhone,
+.third_line .storeTime {
+    display: inline-block;
+    vertical-align: top; /* 가로 정렬을 위한 설정 */
+    margin-right: 10px; /* 각 요소 사이의 간격 조절 */
+}
+.first_line {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.storeName {
+    margin: 0;
+    color: black;
+}
+
+.checkHeart {
+    margin-right: 20px;
+}
+.third_line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+    font-size: 20px;
+}
+
+.storePhone {
+    margin: 0;
+}
+.storeAddress {
+    height: 35px;
+    font-size: 20px;
+}
+
+.storeTime {
+    margin: 0;
+}
+
+.heart_store_info {
+	width: 575px;
+}

@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.ing_info_area {
+	min-height: 700px;
+	width: 768.8px;
+}
+
+.ing_info_top {
+	border-bottom: 3px solid #A6A6A6;
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+	color: #683B28;
+	margin-top: 60px;
+	margin-bottom: 30px;
+	padding-bottom: 20px;
+}
+
+.ing_info_list {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+th {
+	font-size: 20px;
+	padding: 20px 30px 20px 30px;
+}
+
+tbody > tr > th {
+	font-weight: normal;
+}
