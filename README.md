@@ -52,14 +52,14 @@
   <img alt="JQuery" src ="https://img.shields.io/badge/JQuery-0769AD.svg?&style=for-the-badge&logo=JQuery&logoColor=black"/>
 </div>
 
-###DataBase
+### DataBase
 <div>
   <img alt="JDBC" src ="https://img.shields.io/badge/JDBC-B8DBE4.svg?&style=for-the-badge&logo=Databricks&logoColor=black"/>
   <img alt="Oracle" src ="https://img.shields.io/badge/Oracle-F80000.svg?&style=for-the-badge&logo=Oracle&logoColor=black"/>
   <img alt="Apache Tomcat" src ="https://img.shields.io/badge/Apache Tomcat-F8DC75.svg?&style=for-the-badge&logo=Apache Tomcat&logoColor=black"/>
 </div>
 
-###Tools
+### Tools
 <div>
   <img alt="Figma" src ="https://img.shields.io/badge/Figma-F24E1E.svg?&style=for-the-badge&logo=Figma&logoColor=white"/>
   <img alt="STS" src ="https://img.shields.io/badge/STS-6DB33F.svg?&style=for-the-badge&logo=Spring&logoColor=white"/>
@@ -69,7 +69,7 @@
 </div>
 
 
-###Collaboration Tools
+### Collaboration Tools
 <div>
   <img alt="Slack" src ="https://img.shields.io/badge/Slack-4A154B.svg?&style=for-the-badge&logo=Slack&logoColor=white"/>
   <img alt="Discord" src ="https://img.shields.io/badge/Discord-5865F2.svg?&style=for-the-badge&logo=Discord&logoColor=white"/>
