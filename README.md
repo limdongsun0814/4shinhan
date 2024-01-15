@@ -77,7 +77,7 @@
   <img alt="Github" src ="https://img.shields.io/badge/Github-181717.svg?&style=for-the-badge&logo=Github&logoColor=white"/>
   <img alt="Notion" src ="https://img.shields.io/badge/Notion-000000.svg?&style=for-the-badge&logo=Notion&logoColor=white"/>
   <img alt="Google Docs" src ="https://img.shields.io/badge/Google Docs-4285F4.svg?&style=for-the-badge&logo=Google Docs&logoColor=white"/>
-  <img alt="docker" src ="https://img.shields.io/docker/pulls/:user/:repo"/>
+  <img alt="docker" src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white"/>
 </div>
 
 <br/>
