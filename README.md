@@ -83,7 +83,7 @@
 <br/>
 
 # 🍞 ERD 설계
-<img width="720px" alt="Flow" >
+<img width="1103" alt="ERD025" src="https://github.com/limdongsun0814/4shinhan/assets/89927567/649f50d2-1a4a-48cf-b892-3904fbca2aa4">
 
 # 🍞 페이지 구성 및 프리뷰
 ### 로그인/회원 가입
