@@ -55,7 +55,7 @@
 ### DataBase
 <div>
   <img alt="JDBC" src ="https://img.shields.io/badge/JDBC-B8DBE4.svg?&style=for-the-badge&logo=Databricks&logoColor=black"/>
-  <img alt="Oracle" src ="https://img.shields.io/badge/Oracle-F80000.svg?&style=for-the-badge&logo=Oracle&logoColor=black"/>
+  <img src="https://img.shields.io/badge/mariaDB-003545?style=for-the-badge&logo=mariaDB&logoColor=white"/> 
   <img alt="Apache Tomcat" src ="https://img.shields.io/badge/Apache Tomcat-F8DC75.svg?&style=for-the-badge&logo=Apache Tomcat&logoColor=black"/>
 </div>
 
