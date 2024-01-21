@@ -93,11 +93,9 @@
 
 ### 고객님/메인 페이지
 
-<br/>
-
+<p align="center">
 <img src= "https://github.com/limdongsun0814/4shinhan/assets/118763659/f7b6d258-5b29-4420-9e35-74bb95eedaed">
-
-<br/>
+</p>
 
 ### 사장님/로그인/회원가입
 <p align="center">
