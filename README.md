@@ -119,6 +119,11 @@
 </p>
 
 
+### 사장님/메뉴관리
+<p align="center">
+<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/a40ddaa6-3113-41a0-acf5-4c14333a6ec5">
+</p>
+
 
 
 # 🍞 사용한 API
