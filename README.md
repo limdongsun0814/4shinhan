@@ -87,6 +87,10 @@
 
 # 🍞 페이지 구성 및 프리뷰
 ### 고객님/로그인/회원가입
+<p align="center">
+<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/6fcd6a8f-5373-4933-aa29-4059d2484589">
+</p>
+
 ### 사장님/로그인/회원가입
 <p align="center">
 <img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/6fcd6a8f-5373-4933-aa29-4059d2484589">
