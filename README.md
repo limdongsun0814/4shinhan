@@ -1,4 +1,4 @@
-![PinguBakingGIF](https://github.com/limdongsun0814/4shinhan/assets/117821590/8b1b70ce-acde-4557-a41c-b4225b9b349e)# 🍞 빵이오란?
+ 🍞 빵이오란?
 > 대충 내용 포크 테스트 포크 테스트
 <br/>
 
@@ -109,8 +109,11 @@
 
 
 ### 사장님/캘린더/대시보드
-<p align="center">![![PinguBakingGIF (2)](https://github.com/limdongsun0814/4shinhan/assets/117821590/075444c1-e1f5-4a56-a04e-974c1ad7d813)
-Uploading PinguBakingGIF.gif…]()
+<p align="center">
+<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/075444c1-e1f5-4a56-a04e-974c1ad7d813">
+</p>
+
+
 
 <img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/deb5ccf4-7904-44e9-8599-e5da7393799b">
 </p>
