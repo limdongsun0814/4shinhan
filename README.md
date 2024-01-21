@@ -109,10 +109,7 @@
 <img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/d7a3a4dd-1224-4ad4-a39a-4aceeff10507">
 </p>
 
-### 사장님/통계 
-<p align="center">
-<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/8f34fa24-2f43-4b79-995a-8704e0e61469">
-</p>
+
 
 # 🍞 사용한 API
 ### 소셜 로그인
