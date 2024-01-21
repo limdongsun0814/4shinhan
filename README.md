@@ -95,7 +95,7 @@
 
 <br/>
 
-<img src= "https://github.com/limdongsun0814/4shinhan/assets/118763659/4cde2d2f-eec5-4414-8897-8d8b26be7b15">
+<img src= "https://github.com/limdongsun0814/4shinhan/assets/118763659/f7b6d258-5b29-4420-9e35-74bb95eedaed">
 
 <br/>
 
