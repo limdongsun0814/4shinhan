@@ -110,11 +110,6 @@
 
 ### 사장님/캘린더/대시보드
 <p align="center">
-<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/075444c1-e1f5-4a56-a04e-974c1ad7d813">
-</p>
-
-
-
 <img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/deb5ccf4-7904-44e9-8599-e5da7393799b">
 </p>
 
@@ -122,7 +117,6 @@
 <p align="center">
 <img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/2de4846c-4780-41f8-81b4-76cf57a185a7">
 </p>
-
 
 ### 사장님/메뉴관리
 <p align="center">
