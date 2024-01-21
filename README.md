@@ -113,6 +113,12 @@
 <img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/deb5ccf4-7904-44e9-8599-e5da7393799b">
 </p>
 
+### 사장님/알림보내
+<p align="center">
+<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/2de4846c-4780-41f8-81b4-76cf57a185a7">
+</p>
+
+
 
 
 # 🍞 사용한 API
