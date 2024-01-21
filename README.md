@@ -95,7 +95,7 @@
 
 <br/>
 
-![2024-01-21-20-18-14](https://github.com/limdongsun0814/4shinhan/assets/118763659/4cde2d2f-eec5-4414-8897-8d8b26be7b15)
+<img src= "https://github.com/limdongsun0814/4shinhan/assets/118763659/4cde2d2f-eec5-4414-8897-8d8b26be7b15">
 
 <br/>
 
