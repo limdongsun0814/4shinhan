@@ -103,7 +103,7 @@
 <img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/6fcd6a8f-5373-4933-aa29-4059d2484589">
 </p>
 
-### 사장님/??
+### 사장님/주문확인
 <p align="center">
 <img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/d7a3a4dd-1224-4ad4-a39a-4aceeff10507">
 </p>
