@@ -91,8 +91,8 @@
 <img src="https://github.com/limdongsun0814/4shinhan/assets/118763659/291f00b3-04a6-46fa-9eba-00ccc5d590c0">
 </p>
 ### 고객님/메인 페이지
-<p>
-![고객님](https://github.com/limdongsun0814/4shinhan/assets/118763659/b8256a30-f7a5-4ee7-bb39-b6ff06fb8311)
+<p>  
+![https://github.com/changi123/9dorak/assets/77386337/717d670a-180a-4539-a728-2779259d1bf8](https://github.com/limdongsun0814/4shinhan/assets/118763659/b8256a30-f7a5-4ee7-bb39-b6ff06fb8311)
 </p>
 
 ### 사장님/로그인/회원가입
