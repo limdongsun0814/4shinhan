@@ -126,8 +126,9 @@
 
 ### 사장님/공지사항
 <p align="center">
-<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/ae137f29-6105-4c20-a84f-0b5c781225ea">
+<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/f93b1445-867d-45f6-89ed-69b1a1ed6803">
 </p>
+
 
 # 🍞 사용한 API
 ### 소셜 로그인
