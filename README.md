@@ -1,4 +1,4 @@
-# 🍞 빵이오란?
+![PinguBakingGIF](https://github.com/limdongsun0814/4shinhan/assets/117821590/8b1b70ce-acde-4557-a41c-b4225b9b349e)# 🍞 빵이오란?
 > 대충 내용 포크 테스트 포크 테스트
 <br/>
 
@@ -97,7 +97,7 @@
 <img src= "https://github.com/limdongsun0814/4shinhan/assets/118763659/f7b6d258-5b29-4420-9e35-74bb95eedaed">
 </p>
 
-### 사장님/로그인/회원가입
+### 사장님/로그인
 <p align="center">
 <img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/6fcd6a8f-5373-4933-aa29-4059d2484589">
 </p>
@@ -109,7 +109,9 @@
 
 
 ### 사장님/캘린더/대시보드
-<p align="center">
+<p align="center">![![PinguBakingGIF (2)](https://github.com/limdongsun0814/4shinhan/assets/117821590/075444c1-e1f5-4a56-a04e-974c1ad7d813)
+Uploading PinguBakingGIF.gif…]()
+
 <img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/deb5ccf4-7904-44e9-8599-e5da7393799b">
 </p>
 
@@ -124,7 +126,7 @@
 <img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/a40ddaa6-3113-41a0-acf5-4c14333a6ec5">
 </p>
 
-### 사장님/공지사항
+###  사장님/공지사항
 <p align="center">
 <img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/f93b1445-867d-45f6-89ed-69b1a1ed6803">
 </p>
