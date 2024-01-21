@@ -92,7 +92,7 @@
 </p>
 ### 고객님/메인 페이지
 <p>  
-  https://github.com/limdongsun0814/4shinhan/issues/7#issue-2092566163
+  (https://github.com/limdongsun0814/4shinhan/issues/7#issue-2092566163)
 </p>
 
 ### 사장님/로그인/회원가입
