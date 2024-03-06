@@ -97,9 +97,11 @@
 <img src= "https://github.com/limdongsun0814/4shinhan/assets/118763659/f7b6d258-5b29-4420-9e35-74bb95eedaed">
 </p>
 
+### 고객님/가게 상세 페이지
 <p>
  <img src = "https://github.com/limdongsun0814/4shinhan/assets/118763659/38a14af3-d632-4a84-927a-c865b54e7a86">
 </p>
+
 <hr/>
 
 ### 사장님/로그인
