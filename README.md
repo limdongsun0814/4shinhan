@@ -96,7 +96,7 @@
 <p align="center">
 <img src= "https://github.com/limdongsun0814/4shinhan/assets/118763659/f7b6d258-5b29-4420-9e35-74bb95eedaed">
 </p>
-<br/>
+<hr/>
 
 ### 사장님/로그인
 <p align="center">
