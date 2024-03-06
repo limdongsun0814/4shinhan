@@ -94,63 +94,63 @@
 ### 고객님/메인 페이지
 
 <p align="center">
-<img src= "https://github.com/limdongsun0814/4shinhan/assets/118763659/f7b6d258-5b29-4420-9e35-74bb95eedaed">
+<img src= "https://github.com/limdongsun0814/4shinhan/assets/118763659/f7b6d258-5b29-4420-9e35-74bb95eedaed" width="600" height="400">
 </p>
 
 ### 고객님/가게 상세 페이지
 <p align="center">
- <img src = "https://github.com/limdongsun0814/4shinhan/assets/118763659/38a14af3-d632-4a84-927a-c865b54e7a86">
+ <img src = "https://github.com/limdongsun0814/4shinhan/assets/118763659/38a14af3-d632-4a84-927a-c865b54e7a86" width="600" height="400">
 </p>
 ### 고객님/가게 메뉴 상세 페이지
 <p align="center">
- <img src = "https://github.com/limdongsun0814/4shinhan/assets/118763659/f3f3d089-a3b5-4fd3-a70c-dce573de98ac">
+ <img src = "https://github.com/limdongsun0814/4shinhan/assets/118763659/f3f3d089-a3b5-4fd3-a70c-dce573de98ac" width="600" height="400">
 </p>
 
 ### 고객님/장바구니 페이지
 <p align="center">
- <img src="https://github.com/limdongsun0814/4shinhan/assets/118763659/a276b734-67bb-4331-8464-a21d4b39eb35">
+ <img src="https://github.com/limdongsun0814/4shinhan/assets/118763659/a276b734-67bb-4331-8464-a21d4b39eb35" width="600" height="400">
 </p>
 
 ### 고객님/결제 페이지
 <p align="center">
- <img src="https://github.com/limdongsun0814/4shinhan/assets/118763659/10394786-bc8e-47aa-b0e0-063950fd2a7c">
+ <img src="https://github.com/limdongsun0814/4shinhan/assets/118763659/10394786-bc8e-47aa-b0e0-063950fd2a7c" width="600" height="400">
 </p>
 
 ### 고객님/알람 && 마이페이지
 <p align="center">
- <img src="https://private-user-images.githubusercontent.com/118763659/310537645-04a8d562-a87e-4148-8f62-67f04b76494a.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDk3MzYyMDQsIm5iZiI6MTcwOTczNTkwNCwicGF0aCI6Ii8xMTg3NjM2NTkvMzEwNTM3NjQ1LTA0YThkNTYyLWE4N2UtNDE0OC04ZjYyLTY3ZjA0Yjc2NDk0YS5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzA2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMwNlQxNDM4MjRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00YzY2OGJhNjY2NTEwMjc1NjJiZTY5YmVlM2Q3MDRlM2NmMjI4OGQyNTM0MDE2OTUyM2NmZDU2MTE3MzJkM2JlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.37-oobECLRezyc2ArOvP8k6aU9DTPSuMFWsQckZRISg">
-</p>
+ <img src="https://private-user-images.githubusercontent.com/118763659/310537645-04a8d562-a87e-4148-8f62-67f04b76494a.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDk3MzYyMDQsIm5iZiI6MTcwOTczNTkwNCwicGF0aCI6Ii8xMTg3NjM2NTkvMzEwNTM3NjQ1LTA0YThkNTYyLWE4N2UtNDE0OC04ZjYyLTY3ZjA0Yjc2NDk0YS5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzA2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMwNlQxNDM4MjRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00YzY2OGJhNjY2NTEwMjc1NjJiZTY5YmVlM2Q3MDRlM2NmMjI4OGQyNTM0MDE2OTUyM2NmZDU2MTE3MzJkM2JlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.37-oobECLRezyc2ArOvP8k6aU9DTPSuMFWsQckZRISg" width="600" height="400">
+</p> 
 <hr/>
 
 ### 사장님/로그인
 <p align="center">
-<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/6fcd6a8f-5373-4933-aa29-4059d2484589">
+<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/6fcd6a8f-5373-4933-aa29-4059d2484589" width="600" height="400">
 </p>
 
 ### 사장님/주문확인
 <p align="center">
-<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/d7a3a4dd-1224-4ad4-a39a-4aceeff10507">
+<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/d7a3a4dd-1224-4ad4-a39a-4aceeff10507" width="600" height="400">
 </p>
 
 
 ### 사장님/캘린더/대시보드
 <p align="center">
-<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/deb5ccf4-7904-44e9-8599-e5da7393799b">
+<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/deb5ccf4-7904-44e9-8599-e5da7393799b" width="600" height="400">
 </p>
 
 ### 사장님/알림보내기
 <p align="center">
-<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/2de4846c-4780-41f8-81b4-76cf57a185a7">
+<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/2de4846c-4780-41f8-81b4-76cf57a185a7" width="600" height="400">
 </p>
 
 ### 사장님/메뉴관리
 <p align="center">
-<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/a40ddaa6-3113-41a0-acf5-4c14333a6ec5">
+<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/a40ddaa6-3113-41a0-acf5-4c14333a6ec5" width="600" height="400">
 </p>
 
 ###  사장님/공지사항
 <p align="center">
-<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/f93b1445-867d-45f6-89ed-69b1a1ed6803">
+<img src="https://github.com/limdongsun0814/4shinhan/assets/117821590/f93b1445-867d-45f6-89ed-69b1a1ed6803" width="600" height="400">
 </p>
 
 
