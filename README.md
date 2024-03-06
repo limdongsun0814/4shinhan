@@ -116,7 +116,10 @@
  <img src="https://github.com/limdongsun0814/4shinhan/assets/118763659/10394786-bc8e-47aa-b0e0-063950fd2a7c">
 </p>
 
-
+### 고객님/알람 && 마이페이지
+<p>
+ <img src="https://github.com/limdongsun0814/4shinhan/assets/118763659/310537645-04a8d562-a87e-4148-8f62-67f04b76494a">
+</p>
 <hr/>
 
 ### 사장님/로그인
