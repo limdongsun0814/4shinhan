@@ -111,6 +111,12 @@
  <img src="https://github.com/limdongsun0814/4shinhan/assets/118763659/a276b734-67bb-4331-8464-a21d4b39eb35">
 </p>
 
+### 고객님/결제 페이지
+<p>
+ <img src="https://github.com/limdongsun0814/4shinhan/assets/118763659/10394786-bc8e-47aa-b0e0-063950fd2a7c">
+</p>
+
+
 <hr/>
 
 ### 사장님/로그인
