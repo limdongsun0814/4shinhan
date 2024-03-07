@@ -170,19 +170,19 @@
 
 # 🍞 사용한 API
 ### 소셜 로그인
--#### Kakao 로그인 API, NAVER 로그인 API
+- Kakao 로그인 API, NAVER 로그인 API
 
 ### 지도, 주소 검색 API
--#### Kakao 지도 API, DAUM 주소 API
+- Kakao 지도 API, DAUM 주소 API
 
 ### 결제 API
--#### 포트원 API
+- 포트원 API
 
 ### 기타 API
--#### FullCalendar API, Web Notification API
+- FullCalendar API, Web Notification API
 
 # 🍞 사용한 라이브러리
--### SseEmitter, Chart
+- SseEmitter, Chart
 
 
 
