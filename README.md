@@ -24,7 +24,7 @@
 <table>
   <tbody>
     <tr>
-      <td></td>
+      <td>임동선</td>
       <td></td>
       <td></td>
     </tr>
