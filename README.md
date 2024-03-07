@@ -19,7 +19,7 @@
   
 # 🍞 진행 기간 및 절차
 🗓️ 2023.11.14 - 2024.01.05
-<hr/>
+
 <img src="https://github.com/limdongsun0814/4shinhan/assets/118763659/09cb52ae-94a4-48b8-bcb9-920e7e974053" width="713px" alt="Flow" >
 
 <br/>
