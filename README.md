@@ -25,8 +25,8 @@
   <tbody>
     <tr>
       <td>임동선</td>
-      <td></td>
-      <td></td>
+      <td>김현성</td>
+      <td>마하이</td>
     </tr>
     <tr>
       <td></td>
@@ -34,9 +34,9 @@
       <td></td>
     </tr>
    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>민성환</td>
+      <td>양유경</td>
+      <td>정문경</td>
     </tr>
     <tr>
       <td></td>
